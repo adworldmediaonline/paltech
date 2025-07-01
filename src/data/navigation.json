@@ -1,0 +1,51 @@
+{
+  "header": {
+    "logo": {
+      "text": "Paltech",
+      "tagline": "Cooling Solutions"
+    },
+    "navigation": [
+      { "label": "Home", "href": "#home", "active": true },
+      { "label": "About Us", "href": "#about", "active": false },
+      { "label": "Products", "href": "#products", "active": false },
+      { "label": "Services", "href": "#services", "active": false },
+      { "label": "Contact", "href": "#contact", "active": false }
+    ],
+    "cta": {
+      "text": "Get Quote",
+      "href": "#contact"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "Paltech",
+      "description": "Leading manufacturer of cooling towers, chilling plants, and FRP products. ISO certified with 25+ years of industrial expertise.",
+      "contact": {
+        "address": "📍 Ahmedabad, Gujarat, India",
+        "phone": "📞 +91-7926-306-244",
+        "email": "✉️ info@paltech.co.in"
+      }
+    },
+    "links": {
+      "products": {
+        "title": "Products",
+        "items": [
+          { "label": "Cooling Towers", "href": "#" },
+          { "label": "Chilling Plants", "href": "#" },
+          { "label": "FRP Products", "href": "#" },
+          { "label": "Spares & Services", "href": "#" }
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "items": [
+          { "label": "About Us", "href": "#" },
+          { "label": "Our Projects", "href": "#" },
+          { "label": "Certifications", "href": "#" },
+          { "label": "Career", "href": "#" }
+        ]
+      }
+    },
+    "copyright": "© 2024 Paltech Cooling Towers & Equipments Ltd. All rights reserved."
+  }
+}

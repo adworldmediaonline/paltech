@@ -1,13 +1,64 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ===== PALTECH INDUSTRIAL COLOR PALETTE ===== */
+  /* Primary Brand Colors - Based on Logo Color #009ad5 */
+  --color-paltech-blue-50: oklch(0.98 0.02 205);
+  --color-paltech-blue-100: oklch(0.96 0.03 205);
+  --color-paltech-blue-200: oklch(0.91 0.06 205);
+  --color-paltech-blue-300: oklch(0.82 0.11 205);
+  --color-paltech-blue-400: oklch(0.72 0.15 205);
+  --color-paltech-blue-500: oklch(0.61 0.17 205);
+  --color-paltech-blue-600: oklch(0.54 0.15 205);
+  --color-paltech-blue-700: oklch(0.45 0.13 205);
+  --color-paltech-blue-800: oklch(0.38 0.11 205);
+  --color-paltech-blue-900: oklch(0.31 0.09 205);
+  --color-paltech-blue-950: oklch(0.22 0.06 205);
+
+  /* Secondary Colors - Professional Steel Gray */
+  --color-steel-50: oklch(0.99 0.005 220);
+  --color-steel-100: oklch(0.96 0.008 220);
+  --color-steel-200: oklch(0.92 0.012 220);
+  --color-steel-300: oklch(0.85 0.018 220);
+  --color-steel-400: oklch(0.7 0.025 220);
+  --color-steel-500: oklch(0.55 0.03 220);
+  --color-steel-600: oklch(0.45 0.028 220);
+  --color-steel-700: oklch(0.35 0.025 220);
+  --color-steel-800: oklch(0.25 0.02 220);
+  --color-steel-900: oklch(0.15 0.015 220);
+  --color-steel-950: oklch(0.08 0.01 220);
+
+  /* Accent Colors - Technology Teal */
+  --color-tech-teal-50: oklch(0.98 0.015 180);
+  --color-tech-teal-100: oklch(0.94 0.025 180);
+  --color-tech-teal-200: oklch(0.88 0.045 180);
+  --color-tech-teal-300: oklch(0.8 0.07 180);
+  --color-tech-teal-400: oklch(0.7 0.095 180);
+  --color-tech-teal-500: oklch(0.6 0.12 180);
+  --color-tech-teal-600: oklch(0.5 0.11 180);
+  --color-tech-teal-700: oklch(0.4 0.095 180);
+  --color-tech-teal-800: oklch(0.3 0.075 180);
+  --color-tech-teal-900: oklch(0.2 0.055 180);
+  --color-tech-teal-950: oklch(0.12 0.035 180);
+
+  /* Status Colors */
+  --color-success-50: oklch(0.95 0.02 140);
+  --color-success-500: oklch(0.65 0.15 140);
+  --color-success-600: oklch(0.55 0.13 140);
+  --color-warning-50: oklch(0.95 0.02 50);
+  --color-warning-500: oklch(0.7 0.14 50);
+  --color-warning-600: oklch(0.6 0.12 50);
+  --color-danger-50: oklch(0.95 0.02 15);
+  --color-danger-500: oklch(0.65 0.18 15);
+  --color-danger-600: oklch(0.55 0.16 15);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-plus-jakarta-sans);
+  --font-mono: var(--font-jetbrains-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -45,71 +96,144 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --background: var(--color-steel-50);
+  --foreground: var(--color-steel-900);
+  --card: var(--color-steel-50);
+  --card-foreground: var(--color-steel-900);
+  --popover: var(--color-steel-50);
+  --popover-foreground: var(--color-steel-900);
+  --primary: var(--color-paltech-blue-500);
+  --primary-foreground: var(--color-steel-50);
+  --secondary: var(--color-steel-100);
+  --secondary-foreground: var(--color-steel-800);
+  --muted: var(--color-steel-100);
+  --muted-foreground: var(--color-steel-600);
+  --accent: var(--color-paltech-blue-500);
+  --accent-foreground: var(--color-steel-50);
+  --destructive: var(--color-danger-500);
+  --border: var(--color-steel-200);
+  --input: var(--color-steel-100);
+  --ring: var(--color-paltech-blue-500);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: var(--color-steel-50);
+  --sidebar-foreground: var(--color-steel-900);
+  --sidebar-primary: var(--color-paltech-blue-500);
+  --sidebar-primary-foreground: var(--color-steel-50);
+  --sidebar-accent: var(--color-steel-100);
+  --sidebar-accent-foreground: var(--color-steel-800);
+  --sidebar-border: var(--color-steel-200);
+  --sidebar-ring: var(--color-paltech-blue-500);
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular,
+    'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* Paltech Industrial Color Palette - Based on Logo Color #009ad5 */
+  --paltech-primary: #009ad5;
+  --paltech-blue-50: #f0fbff;
+  --paltech-blue-100: #e0f6fe;
+  --paltech-blue-200: #baedfb;
+  --paltech-blue-300: #7ddff8;
+  --paltech-blue-400: #38caf2;
+  --paltech-blue-500: #009ad5;
+  --paltech-blue-600: #0284c7;
+  --paltech-blue-700: #0369a1;
+  --paltech-blue-800: #075985;
+  --paltech-blue-900: #0c4a6e;
+  --paltech-blue-950: #082f49;
+
+  /* Professional Steel Gray */
+  --steel-50: #f8fafc;
+  --steel-100: #f1f5f9;
+  --steel-200: #e2e8f0;
+  --steel-300: #cbd5e1;
+  --steel-400: #94a3b8;
+  --steel-500: #64748b;
+  --steel-600: #475569;
+  --steel-700: #334155;
+  --steel-800: #1e293b;
+  --steel-900: #0f172a;
+  --steel-950: #020617;
+
+  /* Technology Teal */
+  --tech-teal-50: #f0fdfa;
+  --tech-teal-100: #ccfbf1;
+  --tech-teal-200: #99f6e4;
+  --tech-teal-300: #5eead4;
+  --tech-teal-400: #2dd4bf;
+  --tech-teal-500: #14b8a6;
+  --tech-teal-600: #0d9488;
+  --tech-teal-700: #0f766e;
+  --tech-teal-800: #115e59;
+  --tech-teal-900: #134e4a;
+  --tech-teal-950: #042f2e;
+
+  /* Status Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+
+  /* Semantic Colors */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #009ad5;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #009ad5;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #009ad5;
+  --radius: 0.5rem;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --background: var(--color-steel-950);
+  --foreground: var(--color-steel-100);
+  --card: var(--color-steel-900);
+  --card-foreground: var(--color-steel-100);
+  --popover: var(--color-steel-900);
+  --popover-foreground: var(--color-steel-100);
+  --primary: var(--color-paltech-blue-400);
+  --primary-foreground: var(--color-steel-950);
+  --secondary: var(--color-steel-800);
+  --secondary-foreground: var(--color-steel-200);
+  --muted: var(--color-steel-800);
+  --muted-foreground: var(--color-steel-400);
+  --accent: var(--color-paltech-blue-400);
+  --accent-foreground: var(--color-steel-950);
+  --destructive: var(--color-danger-600);
+  --border: var(--color-steel-800);
+  --input: var(--color-steel-800);
+  --ring: var(--color-paltech-blue-400);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: var(--color-steel-900);
+  --sidebar-foreground: var(--color-steel-100);
+  --sidebar-primary: var(--color-paltech-blue-400);
+  --sidebar-primary-foreground: var(--color-steel-950);
+  --sidebar-accent: var(--color-steel-800);
+  --sidebar-accent-foreground: var(--color-steel-200);
+  --sidebar-border: var(--color-steel-800);
+  --sidebar-ring: var(--color-paltech-blue-400);
 }
 
 @layer base {
@@ -119,4 +243,54 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 6s linear infinite;
+}
+
+/* Utility classes for Paltech Primary Color */
+.text-paltech-primary {
+  color: var(--paltech-primary);
+}
+
+.bg-paltech-primary {
+  background-color: var(--paltech-primary);
+}
+
+.border-paltech-primary {
+  border-color: var(--paltech-primary);
+}
+
+.shadow-paltech-primary {
+  box-shadow: 0 10px 15px -3px rgba(0, 154, 213, 0.1),
+    0 4px 6px -2px rgba(0, 154, 213, 0.05);
+}
+
+.shadow-paltech-primary\/25 {
+  box-shadow: 0 10px 15px -3px rgba(0, 154, 213, 0.25),
+    0 4px 6px -2px rgba(0, 154, 213, 0.1);
 }

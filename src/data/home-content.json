@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "badge": "ISO 9001:2015 Certified • Trusted Since 1995",
+    "title": "Advanced Cooling Tower Solutions",
+    "subtitle": "Engineering Excellence for Industrial Applications",
+    "description": "Specializing in high-quality cooling towers, chilling plants, and FRP products. Paltech delivers reliable, energy-efficient solutions with over 25 years of industry expertise.",
+    "cta": {
+      "primary": "Get Expert Consultation",
+      "secondary": "View Our Products"
+    },
+    "stats": [
+      { "value": "5000+", "label": "Projects Delivered" },
+      { "value": "25+", "label": "Years Experience" },
+      { "value": "50+", "label": "Countries Served" },
+      { "value": "99.8%", "label": "Customer Satisfaction" }
+    ]
+  },
+  "services": {
+    "title": "Our Core Solutions",
+    "subtitle": "Comprehensive cooling solutions engineered for your success",
+    "items": [
+      {
+        "title": "Cooling Towers",
+        "description": "RCC Concrete, Pultruded FRP, and Wooden cooling towers with advanced technology",
+        "features": [
+          "Cross Flow Systems",
+          "Counter Flow Systems",
+          "Direct Drive Technology",
+          "Energy Efficient Design"
+        ]
+      },
+      {
+        "title": "Chilling Plants",
+        "description": "Water/Air cooled scroll, screw, and reciprocating chilling systems",
+        "features": [
+          "Water Cooled Systems",
+          "Air Cooled Systems",
+          "Glycol Based Systems",
+          "Multi Circuit Power Saver"
+        ]
+      },
+      {
+        "title": "FRP Products",
+        "description": "High-quality FRP structural profiles and industrial components",
+        "features": [
+          "FRP Deck Panels",
+          "Corrugated Sheets",
+          "Industrial Gratings",
+          "Custom Fabrication"
+        ]
+      }
+    ]
+  },
+  "features": {
+    "title": "Why Choose Paltech?",
+    "subtitle": "Decades of engineering excellence with cutting-edge technology",
+    "items": [
+      {
+        "title": "Quality Assured",
+        "description": "ISO 9001:2015, ISO 14001:2015, and OHSAS 45001:2018 certified manufacturing"
+      },
+      {
+        "title": "Custom Engineering",
+        "description": "Tailored solutions designed to meet your specific industrial requirements"
+      },
+      {
+        "title": "Timely Delivery",
+        "description": "Proven track record of on-time project completion and reliable service"
+      },
+      {
+        "title": "Global Presence",
+        "description": "Serving clients across 50+ countries with local support and expertise"
+      }
+    ]
+  },
+  "clients": {
+    "title": "Trusted by Industry Leaders",
+    "subtitle": "Over 5000 clients worldwide trust Paltech for their cooling solutions",
+    "logos": [
+      "Reliance",
+      "Tata Group",
+      "Vedanta",
+      "Mahindra",
+      "Asian Paints",
+      "NTPC"
+    ]
+  }
+}

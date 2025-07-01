@@ -77,7 +77,7 @@ export default function Products() {
 
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10">
-          {products.map((product, index) => (
+          {products.map(product => (
             <Card
               key={product.id}
               className="group relative border-0 bg-white/80 dark:bg-steel-900/80 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden h-full flex flex-col"

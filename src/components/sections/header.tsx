@@ -15,6 +15,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
+interface DropdownItem {
+  label: string;
+  href: string;
+  subtitle?: string;
+  hasSubmenu?: boolean;
+  submenu?: { label: string; href: string }[];
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileActiveDropdown, setMobileActiveDropdown] = useState<
@@ -72,9 +80,13 @@ export default function Header() {
                                       <div className="text-sm font-medium leading-none text-paltech-blue-700 dark:text-paltech-blue-300">
                                         {dropdownItem.label}
                                       </div>
-                                      {(dropdownItem as any).subtitle && (
+                                      {(dropdownItem as DropdownItem)
+                                        .subtitle && (
                                         <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                                          {(dropdownItem as any).subtitle}
+                                          {
+                                            (dropdownItem as DropdownItem)
+                                              .subtitle
+                                          }
                                         </p>
                                       )}
                                     </Link>
@@ -108,9 +120,13 @@ export default function Header() {
                                     <div className="text-sm font-medium leading-none">
                                       {dropdownItem.label}
                                     </div>
-                                    {(dropdownItem as any).subtitle && (
+                                    {(dropdownItem as DropdownItem)
+                                      .subtitle && (
                                       <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                                        {(dropdownItem as any).subtitle}
+                                        {
+                                          (dropdownItem as DropdownItem)
+                                            .subtitle
+                                        }
                                       </p>
                                     )}
                                   </Link>
@@ -255,9 +271,13 @@ export default function Header() {
                                       className="block px-4 py-2 text-sm font-[family-name:var(--font-plus-jakarta-sans)] text-steel-600 dark:text-steel-400 hover:text-paltech-blue-600 dark:hover:text-paltech-blue-400 transition-colors duration-200"
                                     >
                                       {dropdownItem.label}
-                                      {(dropdownItem as any).subtitle && (
+                                      {(dropdownItem as DropdownItem)
+                                        .subtitle && (
                                         <div className="text-xs text-steel-500 dark:text-steel-500 mt-0.5">
-                                          {(dropdownItem as any).subtitle}
+                                          {
+                                            (dropdownItem as DropdownItem)
+                                              .subtitle
+                                          }
                                         </div>
                                       )}
                                     </Link>

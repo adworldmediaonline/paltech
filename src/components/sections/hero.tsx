@@ -3,6 +3,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import homeContent from '@/data/home-content.json';
+import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
@@ -60,11 +61,13 @@ export default function Hero() {
             <div className="relative h-full flex items-center">
               {/* Background Image */}
               <div className="absolute inset-0">
-                <img
+                <Image
                   src={slide.image}
                   alt={slide.title}
                   className="w-full h-full object-cover"
                   loading={slide.id === 1 ? 'eager' : 'lazy'}
+                  width={1920}
+                  height={1080}
                 />
                 {/* Enhanced Dark Overlay for Better Text Visibility */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/60"></div>

@@ -1,248 +1,355 @@
-import navigationData from '@/data/navigation.json';
+'use client';
+
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
+
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: 'Name must be at least 2 characters.',
+  }),
+  email: z.string().email({
+    message: 'Please enter a valid email address.',
+  }),
+  telephone: z.string().min(10, {
+    message: 'Please enter a valid telephone number.',
+  }),
+  company: z.string().min(2, {
+    message: 'Company name must be at least 2 characters.',
+  }),
+  message: z.string().min(10, {
+    message: 'Message must be at least 10 characters.',
+  }),
+});
+
+const uspItems = [
+  'Quality Products & Most Reliable Services',
+  'More than 34 years of mfg. Excellence',
+  'More than 9000 clients',
+  'Export to 25+ countries',
+  'More than 11000 Installations Worldwide',
+  'Associate Member of Cooling Technology Institute (CTI) USA, Since more than Last Two Decades',
+  'ISO 9001: 2015 Quality Management System, ISO 14001:2015 Environmental Management System and OHSAS 45001:2018 Occupational Health and Safety Management Systems Certified Company',
+];
 
 export default function Footer() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      telephone: '',
+      company: '',
+      message: '',
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+    // Handle form submission here
+  }
+
   return (
-    <footer className="relative bg-gradient-to-br from-steel-900 via-steel-950 to-paltech-blue-950 text-white overflow-hidden">
+    <footer className="relative bg-white border-t border-gray-200 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.15),rgba(255,255,255,0))]"></div>
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-paltech-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-paltech-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,154,213,0.05),rgba(0,154,213,0))]"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b08_1px,transparent_1px),linear-gradient(to_bottom,#1e293b08_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,154,213,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,154,213,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
 
-      <div className="relative py-20 lg:py-24">
+      <div className="relative py-16 lg:py-20">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 lg:gap-16">
-            {/* Company Info */}
-            <div className="lg:col-span-2 space-y-8">
-              <div className="flex items-center space-x-4">
-                <div className="relative">
-                  <div className="w-12 h-12 bg-gradient-to-br from-paltech-blue-500 to-paltech-blue-500 rounded-2xl flex items-center justify-center shadow-lg shadow-paltech-blue-500/25">
-                    <span className="text-white font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-xl">
-                      P
-                    </span>
-                  </div>
-                  <div className="absolute -inset-1 bg-gradient-to-br from-paltech-blue-500 to-paltech-blue-500 rounded-2xl opacity-20 blur-sm"></div>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold bg-gradient-to-r from-white to-paltech-blue-200 bg-clip-text text-transparent">
-                    {navigationData.footer.company.name}
-                  </h3>
-                  <p className="text-steel-400 font-[family-name:var(--font-plus-jakarta-sans)] text-sm">
-                    Industrial Cooling Excellence
-                  </p>
-                </div>
-              </div>
+          <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+            {/* Visit Us Section */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-gray-900 mb-6">
+                  Visit Us
+                </h3>
 
-              <p className="text-steel-300 text-lg leading-relaxed max-w-md font-[family-name:var(--font-plus-jakarta-sans)]">
-                {navigationData.footer.company.description}
-              </p>
-
-              {/* Contact Info Cards */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg
-                        className="w-5 h-5 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-steel-400 font-[family-name:var(--font-plus-jakarta-sans)]">
-                        Call Us
-                      </p>
-                      <p className="text-white font-[family-name:var(--font-plus-jakarta-sans)] font-semibold group-hover:text-paltech-blue-300 transition-colors duration-300">
-                        {navigationData.footer.company.contact.phone}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-paltech-blue-500 to-paltech-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg
-                        className="w-5 h-5 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-steel-400 font-[family-name:var(--font-plus-jakarta-sans)]">
-                        Email Us
-                      </p>
-                      <p className="text-white font-[family-name:var(--font-plus-jakarta-sans)] font-semibold group-hover:text-paltech-blue-300 transition-colors duration-300">
-                        {navigationData.footer.company.contact.email}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Products Links */}
-            <div className="space-y-6">
-              <h4 className="text-xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-white">
-                {navigationData.footer.links.products.title}
-              </h4>
-              <ul className="space-y-4">
-                {navigationData.footer.links.products.items.map(
-                  (item, index) => (
-                    <li key={index}>
-                      <Link
-                        href={item.href}
-                        className="text-steel-300 hover:text-paltech-blue-300 transition-colors duration-300 font-[family-name:var(--font-plus-jakarta-sans)] flex items-center group"
-                      >
-                        <svg
-                          className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                        {item.label}
-                      </Link>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-
-            {/* Company Links */}
-            <div className="space-y-6">
-              <h4 className="text-xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-white">
-                {navigationData.footer.links.company.title}
-              </h4>
-              <ul className="space-y-4">
-                {navigationData.footer.links.company.items.map(
-                  (item, index) => (
-                    <li key={index}>
-                      <Link
-                        href={item.href}
-                        className="text-steel-300 hover:text-paltech-blue-300 transition-colors duration-300 font-[family-name:var(--font-plus-jakarta-sans)] flex items-center group"
-                      >
-                        <svg
-                          className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                        {item.label}
-                      </Link>
-                    </li>
-                  )
-                )}
-              </ul>
-
-              {/* Location Card */}
-              <div className="mt-8 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg
-                      className="w-5 h-5 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  </div>
+                <div className="space-y-6">
+                  {/* Location */}
                   <div>
-                    <p className="text-sm text-steel-400 font-[family-name:var(--font-plus-jakarta-sans)] mb-1">
-                      Our Location
-                    </p>
-                    <p className="text-white text-sm font-[family-name:var(--font-plus-jakarta-sans)] leading-relaxed">
-                      {navigationData.footer.company.contact.address}
+                    <h4 className="text-lg font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-gray-800 mb-3">
+                      Location:
+                    </h4>
+                    <p className="text-gray-600 leading-relaxed font-[family-name:var(--font-plus-jakarta-sans)]">
+                      Plot No. 774, IInd Floor, Udyog Vihar, Phase - V,
+                      Gurugram, Haryana-122016
                     </p>
                   </div>
+
+                  {/* Phone */}
+                  <div>
+                    <h4 className="text-lg font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-gray-800 mb-3">
+                      Phone No.(s):
+                    </h4>
+                    <Link
+                      href="tel:+911244499700"
+                      className="text-gray-600 hover:text-primary transition-colors duration-300 font-[family-name:var(--font-plus-jakarta-sans)]"
+                    >
+                      +91.124.4499700
+                    </Link>
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <h4 className="text-lg font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-gray-800 mb-3">
+                      E-mail:
+                    </h4>
+                    <div className="space-y-2">
+                      <Link
+                        href="mailto:paltech@paltech.net.in"
+                        className="block text-gray-600 hover:text-primary transition-colors duration-300 font-[family-name:var(--font-plus-jakarta-sans)]"
+                      >
+                        paltech@paltech.net.in
+                      </Link>
+                      <Link
+                        href="mailto:bd@paltech.net.in"
+                        className="block text-gray-600 hover:text-primary transition-colors duration-300 font-[family-name:var(--font-plus-jakarta-sans)]"
+                      >
+                        bd@paltech.net.in
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Social Media */}
+                  <div className="flex space-x-4 pt-4">
+                    {[
+                      {
+                        icon: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z',
+                        label: 'Facebook',
+                        href: '#',
+                      },
+                      {
+                        icon: 'M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z',
+                        label: 'Twitter',
+                        href: '#',
+                      },
+                      {
+                        icon: 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z',
+                        label: 'YouTube',
+                        href: '#',
+                      },
+                    ].map((social, index) => (
+                      <Link
+                        key={index}
+                        href={social.href}
+                        className="w-10 h-10 bg-gray-100 hover:bg-primary/10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                        aria-label={social.label}
+                      >
+                        <svg
+                          className="w-5 h-5 text-gray-600 group-hover:text-primary transition-colors duration-300"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d={social.icon} />
+                        </svg>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Our USP Section */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-gray-900 mb-6">
+                  Our USP
+                </h3>
+
+                <div className="space-y-4">
+                  {uspItems.map((usp, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 group"
+                    >
+                      <div className="flex-shrink-0 w-2 h-2 mt-2 bg-gray-400 group-hover:bg-primary rounded-full transition-colors duration-300"></div>
+                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300 font-[family-name:var(--font-plus-jakarta-sans)] text-sm leading-relaxed">
+                        {usp}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Business Enquiry Section */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-gray-900 mb-6">
+                  Business Enquiry
+                </h3>
+
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-6"
+                  >
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700 font-[family-name:var(--font-plus-jakarta-sans)]">
+                            Name *
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Your Name"
+                              {...field}
+                              className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary font-[family-name:var(--font-plus-jakarta-sans)]"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-600" />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700 font-[family-name:var(--font-plus-jakarta-sans)]">
+                            E-mail *
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="your.email@example.com"
+                              {...field}
+                              className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary font-[family-name:var(--font-plus-jakarta-sans)]"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-600" />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="telephone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700 font-[family-name:var(--font-plus-jakarta-sans)]">
+                            Telephone *
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              type="tel"
+                              placeholder="+91 12345 67890"
+                              {...field}
+                              className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary font-[family-name:var(--font-plus-jakarta-sans)]"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-600" />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="company"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700 font-[family-name:var(--font-plus-jakarta-sans)]">
+                            Company *
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Your Company Name"
+                              {...field}
+                              className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary font-[family-name:var(--font-plus-jakarta-sans)]"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-600" />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700 font-[family-name:var(--font-plus-jakarta-sans)]">
+                            Message *
+                          </FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Your message here..."
+                              className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary font-[family-name:var(--font-plus-jakarta-sans)] min-h-[100px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-600" />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-primary text-white hover:bg-primary/90 font-[family-name:var(--font-plus-jakarta-sans)] font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      Submit
+                    </Button>
+                  </form>
+                </Form>
               </div>
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-16 pt-8 border-t border-steel-700/50">
+          <div className="mt-16 pt-8 border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-steel-400 text-sm font-[family-name:var(--font-plus-jakarta-sans)] text-center md:text-left">
-                {navigationData.footer.copyright}
+              <p className="text-gray-500 text-sm font-[family-name:var(--font-plus-jakarta-sans)] text-center md:text-left">
+                © 2024 Paltech™ Cooling Towers & Equipments Ltd. | Website
+                Concept by: GetonTheWeb.in
               </p>
 
-              {/* Social Links (placeholder) */}
-              <div className="flex space-x-4">
-                {[
-                  {
-                    icon: 'M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z',
-                    label: 'Twitter',
-                  },
-                  {
-                    icon: 'M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.219-.359-1.219c0-1.142.662-1.995 1.488-1.995.219 0 .979.219.979 1.488 0 .906-.578 2.261-.881 3.518-.25 1.058.531 1.925 1.574 1.925 1.893 0 3.348-1.995 3.348-4.879 0-2.548-1.831-4.33-4.441-4.33-3.026 0-4.803 2.268-4.803 4.615 0 .914.351 1.893.788 2.424.087.104.099.195.073.301-.08.331-.256 1.011-.292 1.153-.047.188-.154.227-.355.137-1.279-.594-2.077-2.459-2.077-3.954 0-3.359 2.442-6.442 7.031-6.442 3.693 0 6.566 2.633 6.566 6.153 0 3.669-2.312 6.615-5.518 6.615-1.076 0-2.092-.559-2.438-1.228 0 0-.534 2.032-.663 2.533-.24.932-.889 2.1-1.323 2.816.996.307 2.05.472 3.147.472 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z',
-                    label: 'Pinterest',
-                  },
-                  {
-                    icon: 'M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z',
-                    label: 'Twitter',
-                  },
-                ].map((social, index) => (
-                  <button
-                    key={index}
-                    className="w-10 h-10 bg-white/5 hover:bg-white/10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                    aria-label={social.label}
-                  >
-                    <svg
-                      className="w-5 h-5 text-steel-300 group-hover:text-paltech-blue-300 transition-colors duration-300"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d={social.icon} />
-                    </svg>
-                  </button>
-                ))}
+              <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm font-[family-name:var(--font-plus-jakarta-sans)]">
+                <Link
+                  href="/awards-recognition"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Awards & Recognition
+                </Link>
+                <Link
+                  href="/policies-certification"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Policies & Certification
+                </Link>
+                <Link
+                  href="/request-quote"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Request a Quote
+                </Link>
+                <Link
+                  href="/download-brochures"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Download Product Brochures
+                </Link>
               </div>
             </div>
           </div>

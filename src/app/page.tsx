@@ -1,5 +1,4 @@
 import {
-  CTA,
   Clients,
   Features,
   Footer,
@@ -20,7 +19,7 @@ export default function HomePage() {
       <Services />
       <Features />
       <Clients />
-      <CTA />
+      {/* <CTA /> */}
       <Footer />
     </div>
   );

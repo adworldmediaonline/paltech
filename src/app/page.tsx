@@ -6,6 +6,7 @@ import {
   Header,
   Hero,
   Services,
+  Video,
 } from '@/components/sections';
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <Video />
       <Services />
       <Features />
       <Clients />

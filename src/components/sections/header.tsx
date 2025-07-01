@@ -28,16 +28,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-steel-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-steel-900/60 border-b border-paltech-blue-100/20 dark:border-steel-700/50 shadow-lg shadow-paltech-blue-500/5">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 sm:h-22 lg:h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-96 h-24 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-14 sm:h-16 lg:h-20 aspect-square group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/images/logo/logo.webp"
                 alt="Paltech Cooling Towers & Equipments Ltd. - ISO 9001:2015, ISO 14001:2015, OHSAS 45001:2018 certified Company"
                 fill
                 className="object-contain"
-                sizes="384px"
                 priority
               />
             </div>
@@ -146,7 +145,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <Link
               href={navigationData.header.cta.href}
-              className="hidden sm:inline-flex items-center px-6 py-3 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-white bg-gradient-to-r from-paltech-blue-600 to-paltech-blue-500 rounded-lg shadow-lg shadow-paltech-blue-500/25 hover:shadow-xl hover:shadow-paltech-blue-500/40 hover:scale-105 transition-all duration-300 group"
+              className="hidden sm:inline-flex items-center px-6 py-3 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 transition-all duration-300 group"
             >
               {navigationData.header.cta.text}
               <svg
@@ -192,14 +191,14 @@ export default function Header() {
                 className="w-[300px] sm:w-[400px] bg-white/95 dark:bg-steel-900/95 backdrop-blur-md overflow-y-auto"
               >
                 <div className="flex flex-col space-y-4 mt-8">
-                  <div className="flex items-center space-x-3 pb-6 border-b border-paltech-blue-100 dark:border-steel-700">
-                    <div className="relative w-64 h-16">
+                  <div className="flex items-center pb-6 border-b border-paltech-blue-100 dark:border-steel-700">
+                    <div className="relative h-16 aspect-square">
                       <Image
                         src="/images/logo/logo.webp"
                         alt="Paltech Cooling Towers & Equipments Ltd."
                         fill
                         className="object-contain"
-                        sizes="256px"
+                        sizes="64px"
                       />
                     </div>
                   </div>
@@ -290,7 +289,7 @@ export default function Header() {
                   <div className="pt-6 border-t border-paltech-blue-100 dark:border-steel-700">
                     <Link
                       href={navigationData.header.cta.href}
-                      className="flex items-center justify-center px-6 py-3 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-white bg-gradient-to-r from-paltech-blue-600 to-paltech-blue-500 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="flex items-center justify-center px-6 py-3 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {navigationData.header.cta.text}

@@ -1,18 +1,47 @@
 {
   "hero": {
-    "badge": "ISO 9001:2015 Certified • Trusted Since 1995",
-    "title": "Advanced Cooling Tower Solutions",
-    "subtitle": "Engineering Excellence for Industrial Applications",
-    "description": "Specializing in high-quality cooling towers, chilling plants, and FRP products. Paltech delivers reliable, energy-efficient solutions with over 25 years of industry expertise.",
+    "badge": "ISO 9001:2015, ISO 14001:2015, OHSAS 45001:2018 Certified",
+    "title": "PALTECH Cooling Solutions",
+    "subtitle": "Excellence in Industrial Cooling Technology",
+    "description": "PALTECH is synonymous with the highest standards of quality and integrity in the business of cooling solutions. Specializing in a wide range of cooling towers, including Packaged FRP, Wooden, Pultruded FRP, and RCC (Reinforced Concrete Cement) models, PALTECH is a trusted name in the industry. Additionally, we excel in the production of Chilling Plants, catering to both air and water-cooled systems.",
     "cta": {
-      "primary": "Get Expert Consultation",
+      "primary": "Contact Us",
       "secondary": "View Our Products"
     },
     "stats": [
+      { "value": "36+", "label": "Years Experience" },
       { "value": "5000+", "label": "Projects Delivered" },
-      { "value": "25+", "label": "Years Experience" },
       { "value": "50+", "label": "Countries Served" },
       { "value": "99.8%", "label": "Customer Satisfaction" }
+    ]
+  },
+  "about": {
+    "title": "About Us",
+    "content": "PALTECH is synonymous with the highest standards of quality and integrity in the business of cooling solutions. Specializing in a wide range of cooling towers, including Packaged FRP, Wooden, Pultruded FRP, and RCC (Reinforced Concrete Cement) models, PALTECH is a trusted name in the industry. Additionally, we excel in the production of Chilling Plants, catering to both air and water-cooled systems."
+  },
+  "video": {
+    "title": "PALTECH Audio Visual Introduction",
+    "description": "Watch our comprehensive introduction video to learn more about Paltech Cooling Towers & Equipments Ltd.",
+    "videoId": "YOUR_YOUTUBE_VIDEO_ID",
+    "thumbnail": "https://img.youtube.com/vi/YOUR_YOUTUBE_VIDEO_ID/maxresdefault.jpg"
+  },
+  "principles": {
+    "title": "Our Principles",
+    "subtitle": "Quality Products & Services",
+    "description": "Paltech, our brand name, stands for the best quality products, genuine accessories, and the most reliable services at the most reasonable prices in the market. With over 36 years of experience in the industry, we are here to provide you with the best quality products and services compared to any other company in India.",
+    "items": [
+      {
+        "title": "Quality Products & Services",
+        "description": "Paltech, our brand name, stands for the best quality products, genuine accessories, and the most reliable services at the most reasonable prices in the market. With over 36 years of experience in the industry, we are here to provide you with the best quality products and services compared to any other company in India."
+      },
+      {
+        "title": "Precision",
+        "description": "We maintain the highest levels of precision in our manufacturing processes, ensuring that every product meets exact specifications and delivers optimal performance in industrial applications."
+      },
+      {
+        "title": "Efficiency",
+        "description": "Our solutions are designed for maximum energy efficiency, helping our clients reduce operational costs while maintaining superior cooling performance across all applications."
+      }
     ]
   },
   "services": {
@@ -21,7 +50,7 @@
     "items": [
       {
         "title": "Cooling Towers",
-        "description": "RCC Concrete, Pultruded FRP, and Wooden cooling towers with advanced technology",
+        "description": "RCC Concrete, Pultruded FRP, Wooden, and Packaged FRP cooling towers with advanced technology",
         "features": [
           "Cross Flow Systems",
           "Counter Flow Systems",
@@ -53,7 +82,7 @@
   },
   "features": {
     "title": "Why Choose Paltech?",
-    "subtitle": "Decades of engineering excellence with cutting-edge technology",
+    "subtitle": "36+ years of engineering excellence with cutting-edge technology",
     "items": [
       {
         "title": "Quality Assured",
@@ -64,12 +93,12 @@
         "description": "Tailored solutions designed to meet your specific industrial requirements"
       },
       {
-        "title": "Timely Delivery",
-        "description": "Proven track record of on-time project completion and reliable service"
+        "title": "Proven Experience",
+        "description": "Over 36 years of experience in the industry with thousands of successful projects"
       },
       {
-        "title": "Global Presence",
-        "description": "Serving clients across 50+ countries with local support and expertise"
+        "title": "Best Value",
+        "description": "Most reliable services at the most reasonable prices in the market"
       }
     ]
   },

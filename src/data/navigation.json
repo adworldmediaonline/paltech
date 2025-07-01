@@ -1,0 +1,203 @@
+{
+  "header": {
+    "logo": {
+      "text": "Paltech",
+      "tagline": "Cooling Towers & Equipments Ltd.",
+      "subtitle": "An ISO 9001: 2015, ISO 14001:2015, OHSAS 45001:2018 certified Company"
+    },
+    "navigation": [
+      {
+        "label": "Home",
+        "href": "/",
+        "active": true
+      },
+      {
+        "label": "About Us",
+        "href": "/about",
+        "active": false,
+        "hasDropdown": true,
+        "dropdown": [
+          { "label": "Our Mission", "href": "/about/mission" },
+          { "label": "Our Clients", "href": "/about/clients" },
+          { "label": "Awards & Recognition", "href": "/about/awards" },
+          {
+            "label": "Policies & Certification",
+            "href": "/about/certifications"
+          },
+          { "label": "Executed Projects", "href": "/about/projects" },
+          { "label": "Project Consultants", "href": "/about/consultants" },
+          { "label": "Affiliated Bodies", "href": "/about/affiliations" },
+          { "label": "Export Countries", "href": "/about/exports" }
+        ]
+      },
+      {
+        "label": "Products",
+        "href": "/products",
+        "active": false,
+        "hasDropdown": true,
+        "dropdown": [
+          {
+            "label": "Cooling Towers",
+            "href": "/products/cooling-towers",
+            "hasSubmenu": true,
+            "submenu": [
+              {
+                "label": "RCC Concrete Cooling Towers",
+                "href": "/products/cooling-towers/rcc-concrete",
+                "subtitle": "Cross Flow / Counter Flow"
+              },
+              {
+                "label": "Pultruded FRP Cooling Towers",
+                "href": "/products/cooling-towers/frp-pultruded",
+                "subtitle": "Cross Flow / Counter Flow"
+              },
+              {
+                "label": "Wooden/Timber Cooling Towers",
+                "href": "/products/cooling-towers/wooden-timber",
+                "hasSubmenu": true,
+                "submenu": [
+                  {
+                    "label": "Single & Double Flow Induced Draft Crossflow with Direct Drive Systems",
+                    "href": "/products/cooling-towers/wooden/direct-drive"
+                  },
+                  {
+                    "label": "Single & Double Flow Induced Draft Crossflow with Reduction Reducer Drive System",
+                    "href": "/products/cooling-towers/wooden/reducer-drive"
+                  },
+                  {
+                    "label": "Packaged Wooden/Timber Double Flow Induced Draft Crossflow Cooling Towers",
+                    "href": "/products/cooling-towers/wooden/packaged"
+                  }
+                ]
+              },
+              {
+                "label": "FRP Cooling Towers",
+                "href": "/products/cooling-towers/frp",
+                "hasSubmenu": true,
+                "submenu": [
+                  {
+                    "label": "Counter Flow Bottle Shape",
+                    "href": "/products/cooling-towers/frp/bottle-shape"
+                  },
+                  {
+                    "label": "Counter Flow Rectangular/Square Shape",
+                    "href": "/products/cooling-towers/frp/rectangular"
+                  },
+                  {
+                    "label": "Fan less Induced Draft - Jet Type FRP",
+                    "href": "/products/cooling-towers/frp/jet-type"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Chilling Plants",
+            "href": "/products/chilling-plants",
+            "hasSubmenu": true,
+            "submenu": [
+              {
+                "label": "Water/Air Cooled Scroll Chilling Plants",
+                "href": "/products/chilling/scroll-plants"
+              },
+              {
+                "label": "CFC Free Water/Air Cooled Chilling Plant",
+                "href": "/products/chilling/cfc-free"
+              },
+              {
+                "label": "Glycol Based Water/Air Cooled Chilling Plants",
+                "href": "/products/chilling/glycol-based"
+              },
+              {
+                "label": "Micro Processor based Water/Air Cooled Chilling Plants",
+                "href": "/products/chilling/micro-processor"
+              },
+              {
+                "label": "Multi Circuit Power Saver Scroll / Screw Chilling Plant (Water / Air Cooled)",
+                "href": "/products/chilling/multi-circuit"
+              },
+              {
+                "label": "Reciprocating Water / Air Cooled Chilling Plants",
+                "href": "/products/chilling/reciprocating"
+              },
+              {
+                "label": "Standard Capacity Screw / Scroll Chilling Plants (Water / Air Cooled)",
+                "href": "/products/chilling/standard-capacity"
+              },
+              {
+                "label": "Tailor Made Power Saver Screw / Scroll Chilling Plant (Water / Air Cooled)",
+                "href": "/products/chilling/tailor-made"
+              },
+              {
+                "label": "Trolley Mounted Water / Air Cooled Chilling Plant",
+                "href": "/products/chilling/trolley-mounted"
+              }
+            ]
+          },
+          {
+            "label": "FRP/GRP Structural Profiles",
+            "href": "/products/frp-structural"
+          },
+          { "label": "FRP Deck Panels", "href": "/products/frp-deck-panels" },
+          {
+            "label": "FRP Corrugated Sheets",
+            "href": "/products/frp-corrugated"
+          },
+          { "label": "FRP Gratings", "href": "/products/frp-gratings" },
+          { "label": "FRP Ladders", "href": "/products/frp-ladders" }
+        ]
+      },
+      {
+        "label": "Spares",
+        "href": "/spares",
+        "active": false
+      },
+      {
+        "label": "Other Services",
+        "href": "/services",
+        "active": false
+      },
+      {
+        "label": "Career",
+        "href": "/career",
+        "active": false
+      }
+    ],
+    "cta": {
+      "text": "Contact Us",
+      "href": "/contact"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "Paltech Cooling Towers & Equipments Ltd.",
+      "description": "Leading manufacturer of cooling towers, chilling plants, and FRP products. ISO 9001:2015, ISO 14001:2015, OHSAS 45001:2018 certified with 25+ years of industrial expertise.",
+      "contact": {
+        "address": "📍 Ahmedabad, Gujarat, India",
+        "phone": "📞 +91-7926-306-244",
+        "email": "✉️ info@paltech.co.in"
+      }
+    },
+    "links": {
+      "products": {
+        "title": "Products",
+        "items": [
+          { "label": "Cooling Towers", "href": "/products/cooling-towers" },
+          { "label": "Chilling Plants", "href": "/products/chilling-plants" },
+          { "label": "FRP Products", "href": "/products/frp-products" },
+          { "label": "Spares & Services", "href": "/spares" }
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "items": [
+          { "label": "About Us", "href": "/about" },
+          { "label": "Our Projects", "href": "/about/projects" },
+          { "label": "Certifications", "href": "/about/certifications" },
+          { "label": "Career", "href": "/career" }
+        ]
+      }
+    },
+    "copyright": "© 2024 Paltech Cooling Towers & Equipments Ltd. All rights reserved."
+  }
+}

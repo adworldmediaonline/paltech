@@ -1,8 +1,6 @@
 import {
   Clients,
   Features,
-  Footer,
-  Header,
   Hero,
   Products,
   Services,
@@ -12,7 +10,6 @@ import {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <Hero />
       <Products />
       <Video />
@@ -20,7 +17,6 @@ export default function HomePage() {
       <Features />
       <Clients />
       {/* <CTA /> */}
-      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
+import { Footer, Header } from '../components/sections';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -36,7 +37,9 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${jetBrainsMono.variable} antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -528,12 +528,13 @@ export function ProductsContent() {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      'cooling-towers': 'bg-blue-100 text-blue-800 border-blue-200',
-      'hvac-systems': 'bg-indigo-100 text-indigo-800 border-indigo-200',
-      'heat-exchangers': 'bg-orange-100 text-orange-800 border-orange-200',
-      'pumps-motors': 'bg-green-100 text-green-800 border-green-200',
-      'water-treatment': 'bg-cyan-100 text-cyan-800 border-cyan-200',
-      'maintenance-service': 'bg-purple-100 text-purple-800 border-purple-200',
+      'Cooling Towers': 'bg-blue-100 text-blue-800 border-blue-200',
+      'HVAC Systems': 'bg-indigo-100 text-indigo-800 border-indigo-200',
+      'Heat Exchangers': 'bg-orange-100 text-orange-800 border-orange-200',
+      'Pumps & Motors': 'bg-green-100 text-green-800 border-green-200',
+      'Water Treatment': 'bg-cyan-100 text-cyan-800 border-cyan-200',
+      'Maintenance & Service':
+        'bg-purple-100 text-purple-800 border-purple-200',
     };
     return (
       colors[category as keyof typeof colors] ||

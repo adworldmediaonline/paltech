@@ -196,9 +196,8 @@ export default function FilterSidebar({ products }: FilterSidebarProps) {
                   />
                   <Label
                     htmlFor={category.value}
-                    className="text-sm text-gray-600 cursor-pointer hover:text-gray-900 flex items-center gap-2"
+                    className="text-sm text-gray-600 cursor-pointer hover:text-gray-900"
                   >
-                    <span>{category.icon}</span>
                     {category.label}
                   </Label>
                 </div>

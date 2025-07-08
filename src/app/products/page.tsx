@@ -12,8 +12,8 @@ import ProductsContentNew from './products-content-new';
 
 export default function Products() {
   return (
-    <div className="pt-16 lg:pt-20">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+    <div className="pt-5 lg:pt-5">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-5 lg:pb-5">
         {/* Breadcrumb */}
         <Breadcrumb className="mb-3">
           <BreadcrumbList>

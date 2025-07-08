@@ -1,5 +1,5 @@
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   category: string;
   price: number;
@@ -24,454 +24,245 @@ export interface SortOption {
   label: string;
 }
 
-export const products: Product[] = [
-  // Cooling Towers (4 products)
+export const products = [
   {
-    id: 'ct-001',
-    name: 'Crossflow Cooling Tower',
-    category: 'cooling-towers',
-    price: 85000,
-    image:
-      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop&crop=center',
+    id: 1,
+    name: 'Industrial Crossflow Cooling Tower',
+    category: 'Cooling Towers',
+    price: 45000,
+    originalPrice: 48000,
+    image: '/images/products/prd-1.jpg',
     description:
-      'High-efficiency crossflow cooling tower with advanced PVC fill for optimal thermal performance and energy savings.',
+      'High-efficiency crossflow cooling tower designed for industrial applications with optimized heat rejection capabilities.',
     features: [
-      'PVC Fill',
+      'Crossflow Design',
       'Corrosion Resistant',
       'Energy Efficient',
       'Low Maintenance',
     ],
-    specifications: {
-      capacity: '100-1000 TR',
-      material: 'FRP/Concrete',
-      warranty: '2 Years',
-    },
+    specifications: {},
     rating: 4.8,
-    availability: 'In Stock',
+    availability: 'In Stock' as const,
     featured: true,
   },
   {
-    id: 'ct-002',
+    id: 2,
     name: 'Counterflow Cooling Tower',
-    category: 'cooling-towers',
-    price: 95000,
-    image:
-      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=800&h=600&fit=crop&crop=center',
+    category: 'Cooling Towers',
+    price: 52000,
+    originalPrice: 55000,
+    image: '/images/products/prd-2.jpg',
     description:
-      'Premium counterflow design with superior heat transfer efficiency and compact footprint for space-constrained installations.',
+      'Advanced counterflow cooling tower with superior thermal performance and compact footprint.',
+    features: [
+      'Counterflow Technology',
+      'High Efficiency',
+      'Compact Design',
+      'Durable Construction',
+    ],
+    specifications: {},
+    rating: 4.6,
+    availability: 'In Stock' as const,
+    featured: false,
+  },
+  {
+    id: 3,
+    name: 'Shell and Tube Heat Exchanger',
+    category: 'Heat Exchangers',
+    price: 15000,
+    originalPrice: 16500,
+    image: '/images/products/prd-3.png',
+    description:
+      'Robust shell and tube heat exchanger for efficient heat transfer in industrial processes.',
+    features: [
+      'High Heat Transfer',
+      'Removable Bundle',
+      'ASME Certified',
+      'Multiple Pass Options',
+    ],
+    specifications: {},
+    rating: 4.7,
+    availability: 'In Stock' as const,
+    featured: true,
+  },
+  {
+    id: 4,
+    name: 'Plate Heat Exchanger',
+    category: 'Heat Exchangers',
+    price: 8500,
+    originalPrice: 9200,
+    image: '/images/products/prd-4.jpeg',
+    description:
+      'Compact plate heat exchanger offering excellent thermal efficiency and easy maintenance.',
     features: [
       'Compact Design',
-      'Superior Heat Transfer',
-      'Drift Eliminators',
-      'Weather Resistant',
+      'Easy Cleaning',
+      'High Efficiency',
+      'Gasket Design',
     ],
-    specifications: {
-      capacity: '50-800 TR',
-      material: 'FRP',
-      warranty: '3 Years',
-    },
-    rating: 4.9,
-    availability: 'In Stock',
-  },
-  {
-    id: 'ct-003',
-    name: 'Natural Draft Cooling Tower',
-    category: 'cooling-towers',
-    price: 150000,
-    image:
-      'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Large-scale natural draft cooling tower for industrial power plants with minimal energy consumption.',
-    features: [
-      'Zero Energy Consumption',
-      'Hyperbolic Shape',
-      'High Capacity',
-      'Environmentally Friendly',
-    ],
-    specifications: {
-      capacity: '1000+ TR',
-      material: 'Concrete',
-      warranty: '5 Years',
-    },
-    rating: 4.7,
-    availability: 'Custom Order',
-  },
-  {
-    id: 'ct-004',
-    name: 'Hybrid Cooling Tower',
-    category: 'cooling-towers',
-    price: 120000,
-    image:
-      'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Advanced hybrid technology combining wet and dry cooling for optimal performance in all weather conditions.',
-    features: [
-      'Hybrid Technology',
-      'Weather Adaptive',
-      'Water Saving',
-      'Advanced Controls',
-    ],
-    specifications: {
-      capacity: '200-1200 TR',
-      material: 'FRP/Steel',
-      warranty: '3 Years',
-    },
-    rating: 4.6,
-    availability: 'In Stock',
-  },
-
-  // HVAC Systems (3 products)
-  {
-    id: 'hvac-001',
-    name: 'Industrial AHU System',
-    category: 'hvac-systems',
-    price: 65000,
-    image:
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Complete air handling unit with precise temperature and humidity control for industrial applications.',
-    features: [
-      'Precise Control',
-      'Energy Recovery',
-      'HEPA Filtration',
-      'Smart Controls',
-    ],
-    specifications: {
-      capacity: '5000-50000 CFM',
-      efficiency: '85%+',
-      warranty: '2 Years',
-    },
+    specifications: {},
     rating: 4.5,
-    availability: 'In Stock',
+    availability: 'In Stock' as const,
+    featured: false,
   },
   {
-    id: 'hvac-002',
-    name: 'Chilled Water System',
-    category: 'hvac-systems',
-    price: 180000,
-    image:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center',
+    id: 5,
+    name: 'Brazed Plate Heat Exchanger',
+    category: 'Heat Exchangers',
+    price: 6500,
+    originalPrice: 7000,
+    image: '/images/products/prd-5.jpeg',
     description:
-      'High-capacity chilled water system with variable speed drives and advanced refrigeration technology.',
+      'Maintenance-free brazed plate heat exchanger ideal for HVAC and refrigeration applications.',
+    features: [
+      'Maintenance Free',
+      'Leak Proof',
+      'Compact Size',
+      'High Pressure Rating',
+    ],
+    specifications: {},
+    rating: 4.4,
+    availability: 'Out of Stock' as const,
+    featured: false,
+  },
+  {
+    id: 6,
+    name: 'Industrial Chilled Water System',
+    category: 'HVAC Systems',
+    price: 75000,
+    originalPrice: 80000,
+    image: '/images/products/prd-6.jpeg',
+    description:
+      'Complete chilled water system for large-scale industrial cooling applications.',
+    features: [
+      'Complete System',
+      'Energy Efficient',
+      'Remote Monitoring',
+      'Variable Speed Control',
+    ],
+    specifications: {},
+    rating: 4.9,
+    availability: 'In Stock' as const,
+    featured: true,
+  },
+  {
+    id: 7,
+    name: 'Air Handling Unit',
+    category: 'HVAC Systems',
+    price: 25000,
+    originalPrice: 27000,
+    image: '/images/products/prd-7.jpeg',
+    description:
+      'Custom air handling unit with advanced filtration and temperature control systems.',
+    features: [
+      'Custom Configuration',
+      'Advanced Filtration',
+      'Variable Air Volume',
+      'Energy Recovery',
+    ],
+    specifications: {},
+    rating: 4.6,
+    availability: 'Custom Order' as const,
+    featured: false,
+  },
+  {
+    id: 8,
+    name: 'Industrial Centrifugal Pump',
+    category: 'Pumps & Motors',
+    price: 12000,
+    originalPrice: 13000,
+    image: '/images/products/prd-1.jpg',
+    description:
+      'Heavy-duty centrifugal pump designed for continuous industrial operation.',
+    features: [
+      'Heavy Duty',
+      'Self-Priming',
+      'Corrosion Resistant',
+      'High Flow Rate',
+    ],
+    specifications: {},
+    rating: 4.5,
+    availability: 'In Stock' as const,
+    featured: false,
+  },
+  {
+    id: 9,
+    name: 'Variable Frequency Drive Motor',
+    category: 'Pumps & Motors',
+    price: 8000,
+    originalPrice: 8500,
+    image: '/images/products/prd-2.jpg',
+    description:
+      'Energy-efficient VFD motor with precise speed control and monitoring capabilities.',
     features: [
       'Variable Speed',
-      'High COP',
-      'R134a Refrigerant',
+      'Energy Efficient',
+      'Digital Control',
       'Remote Monitoring',
     ],
-    specifications: {
-      capacity: '100-2000 TR',
-      efficiency: '6.5+ COP',
-      warranty: '3 Years',
-    },
-    rating: 4.8,
-    availability: 'In Stock',
-    featured: true,
-  },
-  {
-    id: 'hvac-003',
-    name: 'VRV Multi-Split System',
-    category: 'hvac-systems',
-    price: 45000,
-    image:
-      'https://images.unsplash.com/photo-1631545806606-b58817a8cce7?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Variable refrigerant volume system for precise zone control and energy efficiency in commercial buildings.',
-    features: [
-      'Zone Control',
-      'Heat Recovery',
-      'Inverter Technology',
-      'Quiet Operation',
-    ],
-    specifications: {
-      capacity: '8-130 HP',
-      zones: 'Up to 64',
-      warranty: '3 Years',
-    },
+    specifications: {},
     rating: 4.7,
-    availability: 'In Stock',
-  },
-
-  // Heat Exchangers (3 products)
-  {
-    id: 'hex-001',
-    name: 'Shell & Tube Heat Exchanger',
-    category: 'heat-exchangers',
-    price: 35000,
-    image:
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Robust shell and tube design for high-pressure applications with excellent thermal efficiency.',
-    features: [
-      'High Pressure Rating',
-      'Thermal Efficiency',
-      'Corrosion Resistant',
-      'Easy Maintenance',
-    ],
-    specifications: {
-      pressure: 'Up to 300 PSI',
-      material: 'SS316L',
-      warranty: '2 Years',
-    },
-    rating: 4.6,
-    availability: 'In Stock',
+    availability: 'In Stock' as const,
+    featured: false,
   },
   {
-    id: 'hex-002',
-    name: 'Plate Heat Exchanger',
-    category: 'heat-exchangers',
-    price: 25000,
-    image:
-      'https://images.unsplash.com/photo-1565813254282-6ce1ab8e4c39?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Compact plate design with gaskets for easy maintenance and high heat transfer coefficient.',
-    features: [
-      'Compact Design',
-      'High Efficiency',
-      'Gasket Sealing',
-      'Modular Construction',
-    ],
-    specifications: {
-      flow: '0.5-1500 m³/h',
-      material: 'Titanium Plates',
-      warranty: '2 Years',
-    },
-    rating: 4.4,
-    availability: 'In Stock',
-  },
-  {
-    id: 'hex-003',
-    name: 'Air-Cooled Heat Exchanger',
-    category: 'heat-exchangers',
-    price: 55000,
-    image:
-      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Industrial air-cooled heat exchanger with variable speed fans for optimal performance.',
-    features: [
-      'Air Cooling',
-      'Variable Speed Fans',
-      'Fin-Tube Design',
-      'Weather Protection',
-    ],
-    specifications: {
-      capacity: '500-5000 kW',
-      fans: '2-8 Units',
-      warranty: '3 Years',
-    },
-    rating: 4.5,
-    availability: 'Custom Order',
-  },
-
-  // Pumps & Motors (4 products)
-  {
-    id: 'pm-001',
-    name: 'Centrifugal Pump',
-    category: 'pumps-motors',
-    price: 15000,
-    image:
-      'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Heavy-duty centrifugal pump with cast iron construction for reliable water circulation.',
-    features: [
-      'Cast Iron Construction',
-      'Self-Priming',
-      'High Efficiency',
-      'Balanced Impeller',
-    ],
-    specifications: {
-      flow: '50-2000 GPM',
-      head: '50-300 ft',
-      warranty: '1 Year',
-    },
-    rating: 4.3,
-    availability: 'In Stock',
-  },
-  {
-    id: 'pm-002',
-    name: 'Variable Speed Drive',
-    category: 'pumps-motors',
-    price: 8500,
-    image:
-      'https://images.unsplash.com/photo-1621905252472-91b5f1f3297c?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Advanced VFD for precise motor control and energy savings with built-in protection features.',
-    features: [
-      'Energy Saving',
-      'Precise Control',
-      'Built-in Protection',
-      'LCD Display',
-    ],
-    specifications: {
-      power: '1-500 HP',
-      voltage: '208-480V',
-      warranty: '2 Years',
-    },
-    rating: 4.7,
-    availability: 'In Stock',
-  },
-  {
-    id: 'pm-003',
-    name: 'Submersible Pump',
-    category: 'pumps-motors',
-    price: 12000,
-    image:
-      'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Stainless steel submersible pump for deep well applications with corrosion-resistant design.',
-    features: [
-      'Stainless Steel',
-      'Deep Well Capable',
-      'Corrosion Resistant',
-      'High Efficiency Motor',
-    ],
-    specifications: {
-      depth: 'Up to 500 ft',
-      flow: '25-500 GPM',
-      warranty: '2 Years',
-    },
-    rating: 4.4,
-    availability: 'In Stock',
-  },
-  {
-    id: 'pm-004',
-    name: 'IE4 Premium Motor',
-    category: 'pumps-motors',
-    price: 6500,
-    image:
-      'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Super premium efficiency IE4 motor with advanced magnetic design for maximum energy savings.',
-    features: [
-      'IE4 Efficiency',
-      'Magnetic Design',
-      'Low Vibration',
-      'Extended Life',
-    ],
-    specifications: {
-      power: '1-200 HP',
-      efficiency: '95%+',
-      warranty: '3 Years',
-    },
-    rating: 4.8,
-    availability: 'In Stock',
-    featured: true,
-  },
-
-  // Water Treatment (3 products)
-  {
-    id: 'wt-001',
-    name: 'RO Water Treatment Plant',
-    category: 'water-treatment',
-    price: 75000,
-    image:
-      'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&h=600&fit=crop&crop=center',
-    description:
-      'Complete reverse osmosis system for industrial water purification with automated controls.',
-    features: [
-      'Automated Controls',
-      'Multi-Stage Filtration',
-      'High Recovery Rate',
-      'Low Maintenance',
-    ],
-    specifications: {
-      capacity: '1000-50000 LPH',
-      recovery: '75%+',
-      warranty: '2 Years',
-    },
-    rating: 4.6,
-    availability: 'Custom Order',
-  },
-  {
-    id: 'wt-002',
-    name: 'Chemical Dosing System',
-    category: 'water-treatment',
+    id: 10,
+    name: 'Water Treatment Chemical Dosing System',
+    category: 'Water Treatment',
     price: 18000,
-    image: '/images/products/chemical-dosing-system.jpg',
+    originalPrice: 19500,
+    image: '/images/products/prd-3.png',
     description:
-      'Precise chemical dosing system for water treatment with programmable controllers and safety features.',
+      'Automated chemical dosing system for optimal water treatment and system protection.',
     features: [
-      'Programmable Control',
-      'Safety Features',
-      'Multiple Chemicals',
-      'Alarm System',
+      'Automated Dosing',
+      'pH Control',
+      'Corrosion Inhibition',
+      'Remote Monitoring',
     ],
-    specifications: {
-      tanks: '2-6 Units',
-      capacity: '50-1000L',
-      warranty: '2 Years',
-    },
-    rating: 4.5,
-    availability: 'In Stock',
+    specifications: {},
+    rating: 4.3,
+    availability: 'Out of Stock' as const,
+    featured: false,
   },
   {
-    id: 'wt-003',
-    name: 'UV Sterilization System',
-    category: 'water-treatment',
-    price: 22000,
-    image: '/images/products/uv-sterilization.jpg',
+    id: 11,
+    name: 'UV Water Sterilization Unit',
+    category: 'Water Treatment',
+    price: 9500,
+    originalPrice: 10200,
+    image: '/images/products/prd-4.jpeg',
     description:
-      'UV sterilization system for microbial control with high-intensity UV lamps and monitoring.',
+      'UV sterilization system for effective water disinfection without chemicals.',
     features: [
-      'UV-C Technology',
-      'High Intensity Lamps',
-      'Monitoring System',
-      'No Chemicals',
+      'Chemical Free',
+      '99.9% Kill Rate',
+      'Low Maintenance',
+      'Automatic Cleaning',
     ],
-    specifications: {
-      flow: '500-10000 LPH',
-      lamps: '2-12 Units',
-      warranty: '1 Year',
-    },
-    rating: 4.4,
-    availability: 'In Stock',
-  },
-
-  // Maintenance & Service (2 products)
-  {
-    id: 'ms-001',
-    name: 'Preventive Maintenance Kit',
-    category: 'maintenance-service',
-    price: 3500,
-    image: '/images/products/maintenance-kit.jpg',
-    description:
-      'Comprehensive maintenance kit with genuine parts and consumables for cooling tower upkeep.',
-    features: [
-      'Genuine Parts',
-      'Complete Kit',
-      'Installation Guide',
-      'Quality Assured',
-    ],
-    specifications: {
-      coverage: 'Annual Service',
-      parts: '50+ Items',
-      warranty: '6 Months',
-    },
-    rating: 4.7,
-    availability: 'In Stock',
+    specifications: {},
+    rating: 4.6,
+    availability: 'In Stock' as const,
+    featured: false,
   },
   {
-    id: 'ms-002',
-    name: 'Performance Monitoring System',
-    category: 'maintenance-service',
-    price: 28000,
-    image:
-      'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop&crop=center',
+    id: 12,
+    name: 'Preventive Maintenance Service',
+    category: 'Maintenance & Service',
+    price: 5000,
+    originalPrice: 5500,
+    image: '/images/products/prd-5.jpeg',
     description:
-      'Advanced IoT-based monitoring system for real-time performance tracking and predictive maintenance.',
+      'Comprehensive preventive maintenance program to ensure optimal equipment performance.',
     features: [
-      'IoT Sensors',
-      'Real-time Monitoring',
-      'Predictive Analytics',
-      'Mobile App',
+      'Scheduled Inspections',
+      'Performance Testing',
+      'Component Replacement',
+      'Documentation',
     ],
-    specifications: {
-      sensors: '10-50 Points',
-      connectivity: '4G/WiFi',
-      warranty: '2 Years',
-    },
-    rating: 4.9,
-    availability: 'Custom Order',
+    specifications: {},
+    rating: 4.8,
+    availability: 'In Stock' as const,
     featured: true,
   },
 ];
@@ -485,40 +276,40 @@ export const categories: ProductCategory[] = [
     count: products.length,
   },
   {
-    value: 'cooling-towers',
+    value: 'Cooling Towers',
     label: 'Cooling Towers',
     icon: '🏭',
-    count: products.filter(p => p.category === 'cooling-towers').length,
+    count: products.filter(p => p.category === 'Cooling Towers').length,
   },
   {
-    value: 'hvac-systems',
+    value: 'HVAC Systems',
     label: 'HVAC Systems',
     icon: '❄️',
-    count: products.filter(p => p.category === 'hvac-systems').length,
+    count: products.filter(p => p.category === 'HVAC Systems').length,
   },
   {
-    value: 'heat-exchangers',
+    value: 'Heat Exchangers',
     label: 'Heat Exchangers',
     icon: '🔥',
-    count: products.filter(p => p.category === 'heat-exchangers').length,
+    count: products.filter(p => p.category === 'Heat Exchangers').length,
   },
   {
-    value: 'pumps-motors',
+    value: 'Pumps & Motors',
     label: 'Pumps & Motors',
     icon: '⚙️',
-    count: products.filter(p => p.category === 'pumps-motors').length,
+    count: products.filter(p => p.category === 'Pumps & Motors').length,
   },
   {
-    value: 'water-treatment',
+    value: 'Water Treatment',
     label: 'Water Treatment',
     icon: '💧',
-    count: products.filter(p => p.category === 'water-treatment').length,
+    count: products.filter(p => p.category === 'Water Treatment').length,
   },
   {
-    value: 'maintenance-service',
+    value: 'Maintenance & Service',
     label: 'Maintenance & Service',
     icon: '🔧',
-    count: products.filter(p => p.category === 'maintenance-service').length,
+    count: products.filter(p => p.category === 'Maintenance & Service').length,
   },
 ];
 
@@ -543,12 +334,12 @@ export const formatPrice = (price: number): string => {
 
 export const getCategoryColor = (category: string): string => {
   const colors = {
-    'cooling-towers': 'bg-blue-100 text-blue-800 border-blue-200',
-    'hvac-systems': 'bg-indigo-100 text-indigo-800 border-indigo-200',
-    'heat-exchangers': 'bg-orange-100 text-orange-800 border-orange-200',
-    'pumps-motors': 'bg-green-100 text-green-800 border-green-200',
-    'water-treatment': 'bg-cyan-100 text-cyan-800 border-cyan-200',
-    'maintenance-service': 'bg-purple-100 text-purple-800 border-purple-200',
+    'Cooling Towers': 'bg-blue-100 text-blue-800 border-blue-200',
+    'HVAC Systems': 'bg-indigo-100 text-indigo-800 border-indigo-200',
+    'Heat Exchangers': 'bg-orange-100 text-orange-800 border-orange-200',
+    'Pumps & Motors': 'bg-green-100 text-green-800 border-green-200',
+    'Water Treatment': 'bg-cyan-100 text-cyan-800 border-cyan-200',
+    'Maintenance & Service': 'bg-purple-100 text-purple-800 border-purple-200',
   };
   return (
     colors[category as keyof typeof colors] ||

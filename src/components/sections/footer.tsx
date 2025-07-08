@@ -350,6 +350,31 @@ export default function Footer() {
                 >
                   Download Product Brochures
                 </Link>
+                <span className="text-gray-300">|</span>
+                <Link
+                  href="/privacy-policy"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/terms-of-service"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Terms of Service
+                </Link>
+                <Link
+                  href="/cookie-policy"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Cookie Policy
+                </Link>
+                <Link
+                  href="/disclaimer"
+                  className="text-gray-500 hover:text-primary transition-colors duration-300"
+                >
+                  Disclaimer
+                </Link>
               </div>
             </div>
           </div>

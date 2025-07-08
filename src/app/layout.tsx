@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
+import { Footer, Header } from '../components/sections';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -36,7 +38,11 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${jetBrainsMono.variable} antialiased`}
       >
-        {children}
+        <NuqsAdapter>
+          <Header />
+          {children}
+          <Footer />
+        </NuqsAdapter>
       </body>
     </html>
   );

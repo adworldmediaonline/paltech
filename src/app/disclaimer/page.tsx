@@ -325,7 +325,7 @@ export default function Disclaimer() {
 
           {/* Sidebar - Right Column */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24">
+            <div className="sticky top-20 sm:top-22 lg:top-32">
               <nav className="space-y-2">
                 {legalPages.map(page => (
                   <Link

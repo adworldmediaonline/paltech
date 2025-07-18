@@ -4,7 +4,6 @@ import {
   Hero,
   HeroBanner,
   Products,
-  Services,
   Video,
 } from '@/components/sections';
 
@@ -15,7 +14,7 @@ export default function HomePage() {
       <Products />
       <HeroBanner />
       <Video />
-      <Services />
+      {/* <Services /> */}
       <Features />
       <Clients />
     </div>

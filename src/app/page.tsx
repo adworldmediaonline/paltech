@@ -2,6 +2,7 @@ import {
   Clients,
   Features,
   Hero,
+  HeroBanner,
   Products,
   Services,
   Video,
@@ -12,11 +13,11 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <Hero />
       <Products />
+      <HeroBanner />
       <Video />
       <Services />
       <Features />
       <Clients />
-      {/* <CTA /> */}
     </div>
   );
 }

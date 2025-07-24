@@ -148,6 +148,12 @@
         ]
       },
       {
+        "label": "All Products",
+        "href": "/products",
+        "active": false,
+        "hasDropdown": false
+      },
+      {
         "label": "Spares",
         "href": "/spares",
         "active": false

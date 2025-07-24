@@ -201,40 +201,6 @@ export default function Features() {
             );
           })}
         </motion.div>
-
-        {/* Compact Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-2xl bg-gradient-to-r from-primary via-blue-600 to-purple-600 text-white relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent" />
-
-          {[
-            { value: '36+', label: 'Years Experience' },
-            { value: '1000+', label: 'Projects' },
-            { value: '99.8%', label: 'Satisfaction' },
-            { value: '50+', label: 'Countries' },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center relative z-10"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-2xl sm:text-3xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold mb-1">
-                {stat.value}
-              </div>
-              <div className="text-white/90 font-[family-name:var(--font-plus-jakarta-sans)] text-sm">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

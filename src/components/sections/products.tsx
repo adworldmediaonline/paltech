@@ -3,10 +3,36 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import { useState } from 'react';
 
+// Type definitions
+interface Subcategory {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  subSubcategories: string[];
+}
+
+interface IndustrialCategory {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  gradient: string;
+  icon: string;
+  stats: {
+    products: string;
+    applications: string;
+    capacity: string;
+  };
+  subcategories: Subcategory[];
+}
+
 // Enhanced data structure for hierarchical categories
-const industrialCategories = [
+const industrialCategories: IndustrialCategory[] = [
   {
     id: 'cooling-towers',
     title: 'Cooling Towers',
@@ -194,7 +220,8 @@ export default function Products() {
   const [activeCategory, setActiveCategory] = useState(0);
   const [activeSubcategory, setActiveSubcategory] = useState(0);
   const [currentLevel, setCurrentLevel] = useState<NavigationLevel>('main');
-  const [selectedSubcategory, setSelectedSubcategory] = useState<any>(null);
+  const [selectedSubcategory, setSelectedSubcategory] =
+    useState<Subcategory | null>(null);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
   const handleCategoryClick = (index: number) => {
@@ -204,7 +231,7 @@ export default function Products() {
     setIsDescriptionExpanded(false);
   };
 
-  const handleSubcategoryClick = (subcategory: any, index: number) => {
+  const handleSubcategoryClick = (subcategory: Subcategory, index: number) => {
     setSelectedSubcategory(subcategory);
     setActiveSubcategory(index);
     setIsDescriptionExpanded(false);
@@ -531,17 +558,20 @@ export default function Products() {
                   <div className="relative">
                     {/* Enhanced Hero Image */}
                     <div className="relative h-72 lg:h-96 overflow-hidden bg-steel-100 dark:bg-steel-800">
-                      <img
+                      <Image
                         src={
                           currentLevel === 'sub'
-                            ? selectedSubcategory?.image
+                            ? selectedSubcategory?.image ||
+                              getCurrentCategory().image
                             : getCurrentCategory().image
                         }
                         alt={
                           currentLevel === 'sub'
-                            ? selectedSubcategory?.title
+                            ? selectedSubcategory?.title ||
+                              getCurrentCategory().title
                             : getCurrentCategory().title
                         }
+                        fill
                         className="w-full h-full object-contain transition-transform duration-700 hover:scale-105"
                       />
                       <div

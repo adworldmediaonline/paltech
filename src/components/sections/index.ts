@@ -4,7 +4,6 @@ export { default as Features } from './features';
 export { default as Footer } from './footer';
 export { default as Header } from './header';
 export { default as Hero } from './hero';
-export { default as HeroBanner } from './hero-banner';
 export { default as Products } from './products';
 export { default as Services } from './services';
-export { default as Video } from './video';
+export { default as About } from './video';

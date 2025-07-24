@@ -34,12 +34,15 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-steel-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-steel-900/60 border-b border-paltech-blue-100/20 dark:border-steel-700/50 shadow-lg shadow-paltech-blue-500/5">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-22 lg:h-28">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-white via-white to-primary/80 lg:to-primary/90 backdrop-blur-md relative overflow-hidden">
+      {/* Enhanced Color Flow Effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-primary/60 lg:to-primary/70"></div>
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative h-14 sm:h-16 lg:h-20 aspect-square group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-8 sm:h-10 lg:h-12 aspect-square group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/images/logo/logo.webp"
                 alt="Paltech Cooling Towers & Equipments Ltd. - ISO 9001:2015, ISO 14001:2015, OHSAS 45001:2018 certified Company"
@@ -48,20 +51,23 @@ export default function Header() {
                 priority
               />
             </div>
+            <span className="ml-2 sm:ml-3 text-lg sm:text-xl lg:text-2xl font-bold text-steel-900">
+              Paltech.
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList>
+            <NavigationMenuList className="space-x-6 xl:space-x-8">
               {navigationData.header.navigation.map((item, index) => (
                 <NavigationMenuItem key={index}>
                   {item.hasDropdown ? (
                     <>
                       <NavigationMenuTrigger
-                        className={`text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-medium transition-all duration-300 bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
+                        className={`text-sm font-medium transition-all duration-300 bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
                           item.active
-                            ? 'text-paltech-blue-700 dark:text-paltech-blue-300'
-                            : 'text-steel-700 dark:text-steel-300 hover:text-paltech-blue-700 dark:hover:text-paltech-blue-300'
+                            ? 'text-primary'
+                            : 'text-steel-700 hover:text-primary'
                         }`}
                       >
                         {item.label}
@@ -75,9 +81,9 @@ export default function Header() {
                                   <NavigationMenuLink asChild>
                                     <Link
                                       href={dropdownItem.href}
-                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                     >
-                                      <div className="text-sm font-medium leading-none text-paltech-blue-700 dark:text-paltech-blue-300">
+                                      <div className="text-sm font-medium leading-none text-primary">
                                         {dropdownItem.label}
                                       </div>
                                       {(dropdownItem as DropdownItem)
@@ -100,7 +106,7 @@ export default function Header() {
                                         >
                                           <Link
                                             href={submenuItem.href}
-                                            className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                            className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                           >
                                             <div className="text-xs font-medium leading-none">
                                               {submenuItem.label}
@@ -115,7 +121,7 @@ export default function Header() {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     href={dropdownItem.href}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                   >
                                     <div className="text-sm font-medium leading-none">
                                       {dropdownItem.label}
@@ -140,15 +146,15 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`relative group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-medium transition-colors ${
+                      className={`relative group inline-flex h-9 w-max items-center justify-center px-3 xl:px-4 py-2 text-sm font-medium transition-colors ${
                         item.active
-                          ? 'text-paltech-blue-700 dark:text-paltech-blue-300'
-                          : 'text-steel-700 dark:text-steel-300 hover:text-paltech-blue-700 dark:hover:text-paltech-blue-300'
+                          ? 'text-primary'
+                          : 'text-steel-700 hover:text-primary'
                       }`}
                     >
                       {item.label}
                       {item.active && (
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-paltech-blue-600 to-paltech-blue-500 rounded-full"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-primary rounded-full"></div>
                       )}
                     </Link>
                   )}
@@ -158,25 +164,12 @@ export default function Header() {
           </NavigationMenu>
 
           {/* Desktop CTA & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <Link
               href={navigationData.header.cta.href}
-              className="hidden sm:inline-flex items-center px-6 py-3 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 transition-all duration-300 group"
+              className="hidden sm:inline-flex items-center px-4 sm:px-6 py-2 sm:py-2.5 text-sm font-semibold text-white bg-steel-900 hover:bg-steel-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
             >
               {navigationData.header.cta.text}
-              <svg
-                className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
             </Link>
 
             {/* Mobile Menu */}
@@ -185,7 +178,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="lg:hidden border-transparent hover:border-transparent hover:bg-transparent focus:bg-transparent text-steel-700 dark:text-steel-300 hover:text-paltech-blue-700 dark:hover:text-paltech-blue-300"
+                  className="lg:hidden border-transparent hover:border-transparent hover:bg-transparent focus:bg-transparent text-steel-700 hover:text-primary p-2"
                 >
                   <svg
                     className="h-5 w-5"
@@ -204,39 +197,43 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[300px] sm:w-[400px] bg-white/95 dark:bg-steel-900/95 backdrop-blur-md overflow-y-auto"
+                className="w-[280px] sm:w-[320px] bg-white/95 backdrop-blur-md overflow-y-auto"
               >
-                <div className="flex flex-col space-y-4 mt-8">
-                  <div className="flex items-center pb-6 border-b border-paltech-blue-100 dark:border-steel-700">
-                    <div className="relative h-16 aspect-square">
+                <div className="flex flex-col space-y-4 mt-6 sm:mt-8">
+                  <div className="flex items-center pb-4 sm:pb-6 border-b border-gray-200">
+                    <div className="relative h-10 sm:h-12 aspect-square">
                       <Image
                         src="/images/logo/logo.webp"
                         alt="Paltech Cooling Towers & Equipments Ltd."
                         fill
                         className="object-contain"
-                        sizes="64px"
+                        sizes="48px"
                       />
                     </div>
+                    <span className="ml-3 text-lg sm:text-xl font-bold text-steel-900">
+                      Paltech.
+                    </span>
                   </div>
 
-                  <nav className="flex flex-col space-y-2">
+                  <nav className="flex flex-col space-y-1 sm:space-y-2">
                     {navigationData.header.navigation.map((item, index) => (
                       <div key={index}>
                         <div className="flex items-center justify-between">
                           <Link
                             href={item.href}
-                            className={`flex-1 flex items-center px-4 py-3 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-medium transition-all duration-300 ${
+                            className={`flex-1 flex items-center px-3 sm:px-4 py-2.5 sm:py-3 text-sm font-medium transition-all duration-300 ${
                               item.active
-                                ? 'text-paltech-blue-700 dark:text-paltech-blue-300 border-l-4 border-paltech-blue-600'
-                                : 'text-steel-700 dark:text-steel-300 hover:text-paltech-blue-700 dark:hover:text-paltech-blue-300'
+                                ? 'text-primary border-l-4 border-primary'
+                                : 'text-steel-700 hover:text-primary'
                             }`}
+                            onClick={() => setMobileMenuOpen(false)}
                           >
                             {item.label}
                           </Link>
                           {item.hasDropdown && (
                             <button
                               onClick={() => toggleMobileDropdown(item.label)}
-                              className="p-2 text-steel-500 hover:text-paltech-blue-600 transition-colors duration-200"
+                              className="p-2 text-steel-500 hover:text-primary transition-colors duration-200"
                             >
                               <svg
                                 className={`w-4 h-4 transition-transform duration-200 ${
@@ -262,18 +259,19 @@ export default function Header() {
                         {/* Mobile Dropdown */}
                         {item.hasDropdown &&
                           mobileActiveDropdown === item.label && (
-                            <div className="ml-4 mt-2 space-y-1">
+                            <div className="ml-4 mt-1 sm:mt-2 space-y-1">
                               {item.dropdown?.map(
                                 (dropdownItem, dropdownIndex) => (
                                   <div key={dropdownIndex}>
                                     <Link
                                       href={dropdownItem.href}
-                                      className="block px-4 py-2 text-sm font-[family-name:var(--font-plus-jakarta-sans)] text-steel-600 dark:text-steel-400 hover:text-paltech-blue-600 dark:hover:text-paltech-blue-400 transition-colors duration-200"
+                                      className="block px-3 sm:px-4 py-2 text-sm font-medium text-steel-600 hover:text-primary transition-colors duration-200"
+                                      onClick={() => setMobileMenuOpen(false)}
                                     >
                                       {dropdownItem.label}
                                       {(dropdownItem as DropdownItem)
                                         .subtitle && (
-                                        <div className="text-xs text-steel-500 dark:text-steel-500 mt-0.5">
+                                        <div className="text-xs text-steel-500 mt-0.5">
                                           {
                                             (dropdownItem as DropdownItem)
                                               .subtitle
@@ -283,13 +281,16 @@ export default function Header() {
                                     </Link>
                                     {/* Mobile Submenu */}
                                     {dropdownItem.submenu && (
-                                      <div className="ml-4 mt-1 space-y-1">
+                                      <div className="ml-3 sm:ml-4 mt-1 space-y-1">
                                         {dropdownItem.submenu.map(
                                           (submenuItem, submenuIndex) => (
                                             <Link
                                               key={submenuIndex}
                                               href={submenuItem.href}
-                                              className="block px-3 py-1.5 text-xs font-[family-name:var(--font-plus-jakarta-sans)] text-steel-500 dark:text-steel-500 hover:text-paltech-blue-500 dark:hover:text-paltech-blue-500 transition-colors duration-200"
+                                              className="block px-2 sm:px-3 py-1.5 text-xs font-medium text-steel-500 hover:text-primary transition-colors duration-200"
+                                              onClick={() =>
+                                                setMobileMenuOpen(false)
+                                              }
                                             >
                                               {submenuItem.label}
                                             </Link>
@@ -306,26 +307,13 @@ export default function Header() {
                     ))}
                   </nav>
 
-                  <div className="pt-6 border-t border-paltech-blue-100 dark:border-steel-700">
+                  <div className="pt-4 sm:pt-6 border-t border-gray-200">
                     <Link
                       href={navigationData.header.cta.href}
-                      className="flex items-center justify-center px-6 py-3 text-sm font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 text-sm font-semibold text-white bg-steel-900 hover:bg-steel-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {navigationData.header.cta.text}
-                      <svg
-                        className="ml-2 w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
                     </Link>
                   </div>
                 </div>

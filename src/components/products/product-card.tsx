@@ -7,6 +7,7 @@ import {
   getCategoryColor,
   type Product,
 } from '@/data/products';
+import Image from 'next/image';
 
 interface ProductCardProps {
   product: Product;
@@ -27,17 +28,11 @@ export default function ProductCard({
     <Card className="group relative transition-all duration-300 hover:shadow-xl hover:scale-[1.02] border-2 hover:border-primary/20 bg-white overflow-hidden p-0 flex flex-col">
       {/* Product Image */}
       <div className="relative overflow-hidden aspect-square w-full bg-gradient-to-br from-gray-100 to-gray-200">
-        <img
+        <Image
           src={product.image}
           alt={product.name}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          onError={e => {
-            // Fallback to placeholder if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            const placeholder = target.nextElementSibling as HTMLElement;
-            if (placeholder) placeholder.classList.remove('hidden');
-          }}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         {/* Fallback placeholder */}
         <div className="hidden absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">

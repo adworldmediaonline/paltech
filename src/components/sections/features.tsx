@@ -1,150 +1,240 @@
+'use client';
+
 import { Badge } from '@/components/ui/badge';
 import homeContent from '@/data/home-content.json';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Features() {
-  const featureIcons = [
+  const featureImages = [
     {
-      path: 'M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z',
-      gradient: 'from-primary to-primary/80',
+      image: '/images/products/prd-1.jpg',
+      gradient: 'from-blue-600 via-blue-700 to-blue-900',
+      accentColor: 'blue',
+      bgPattern: 'bg-blue-500/5',
     },
     {
-      path: 'M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z',
-      gradient: 'from-primary/80 to-primary',
+      image: '/images/products/prd-2.jpg',
+      gradient: 'from-emerald-600 via-emerald-700 to-emerald-900',
+      accentColor: 'emerald',
+      bgPattern: 'bg-emerald-500/5',
     },
     {
-      path: 'M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z',
-      gradient: 'from-primary to-primary/90',
+      image: '/images/products/prd-3.png',
+      gradient: 'from-purple-600 via-purple-700 to-purple-900',
+      accentColor: 'purple',
+      bgPattern: 'bg-purple-500/5',
     },
     {
-      path: 'M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z',
-      gradient: 'from-primary/90 to-primary/70',
+      image: '/images/products/prd-4.jpeg',
+      gradient: 'from-orange-600 via-orange-700 to-orange-900',
+      accentColor: 'orange',
+      bgPattern: 'bg-orange-500/5',
     },
   ];
 
-  return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-steel-50/30 to-white dark:from-steel-950 dark:to-steel-900 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/5 to-primary/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-primary/5 to-primary/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 right-1/3 w-4 h-4 bg-primary/20 rounded-full animate-bounce delay-300"></div>
-        <div className="absolute bottom-40 left-1/4 w-6 h-6 bg-primary/20 rotate-45 animate-bounce delay-700"></div>
-        <div className="absolute top-1/3 right-20 w-3 h-3 bg-primary/30 rounded-full animate-bounce delay-500"></div>
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6 },
+    },
+  };
+
+  return (
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-steel-50/30 to-white dark:from-steel-950 dark:to-steel-900 relative overflow-hidden">
+      {/* Compact Background Elements */}
+      <div className="absolute inset-0">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-primary/3 to-blue-500/3 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-purple-500/3 to-orange-500/3 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a05_1px,transparent_1px),linear-gradient(to_bottom,#0f172a05_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
       <div className="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-6 mb-20">
+        {/* Compact Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center space-y-4 mb-12"
+        >
           <Badge
             variant="secondary"
-            className="bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary border border-primary/20 dark:border-primary/30 font-[family-name:var(--font-plus-jakarta-sans)]"
+            className="bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary border border-primary/20 dark:border-primary/30 font-[family-name:var(--font-plus-jakarta-sans)] px-4 py-2 text-sm"
           >
             Why Choose Us
           </Badge>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold">
             <span className="bg-gradient-to-r from-steel-900 via-primary to-primary/80 dark:from-white dark:via-primary/80 dark:to-primary bg-clip-text text-transparent">
               {homeContent.features.title}
             </span>
           </h2>
 
-          <p className="text-xl sm:text-2xl text-steel-600 dark:text-steel-300 max-w-4xl mx-auto leading-relaxed font-[family-name:var(--font-plus-jakarta-sans)]">
+          <p className="text-lg sm:text-xl text-steel-600 dark:text-steel-300 max-w-3xl mx-auto leading-relaxed font-[family-name:var(--font-plus-jakarta-sans)]">
             {homeContent.features.subtitle}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-          {homeContent.features.items.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative text-center space-y-6 p-8 rounded-2xl bg-white/60 dark:bg-steel-900/60 backdrop-blur-xl border border-white/20 dark:border-steel-700/20 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-            >
-              {/* Background gradient on hover */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${featureIcons[index].gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}
-              ></div>
+        {/* Compact Grid Layout */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+        >
+          {homeContent.features.items.map((feature, index) => {
+            const imageData = featureImages[index];
 
-              {/* Floating decoration */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="group relative bg-white/80 dark:bg-steel-900/80 backdrop-blur-xl border border-white/20 dark:border-steel-700/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 flex flex-col"
+              >
+                {/* Compact Image */}
+                <div className="relative h-48 overflow-hidden flex-shrink-0">
+                  <Image
+                    src={imageData.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
 
-              <div className="relative z-10">
-                {/* Icon Container */}
-                <div className="relative mx-auto">
+                  {/* Gradient Overlay */}
                   <div
-                    className={`w-20 h-20 mx-auto bg-gradient-to-br ${featureIcons[index].gradient} rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-2xl group-hover:shadow-primary/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}
-                  >
-                    <svg
-                      className="w-10 h-10 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
+                    className={`absolute inset-0 bg-gradient-to-t ${imageData.gradient} opacity-60 group-hover:opacity-40 transition-opacity duration-500`}
+                  />
+
+                  {/* Feature Number */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <motion.div
+                      className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30"
+                      whileHover={{ scale: 1.1, rotate: 180 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <path
-                        fillRule="evenodd"
-                        d={featureIcons[index].path}
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Icon glow effect */}
-                  <div
-                    className={`absolute inset-0 w-20 h-20 mx-auto bg-gradient-to-br ${featureIcons[index].gradient} rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-xl`}
-                  ></div>
-
-                  {/* Orbit rings */}
-                  <div className="absolute inset-0 w-20 h-20 mx-auto">
-                    <div className="absolute inset-0 border border-primary/30 dark:border-primary/20 rounded-full animate-spin-slow group-hover:border-primary/50 dark:group-hover:border-primary/40 transition-colors duration-500"></div>
-                    <div className="absolute inset-2 border border-primary/20 dark:border-primary/20 rounded-full animate-spin-slow-reverse group-hover:border-primary/40 dark:group-hover:border-primary/40 transition-colors duration-500"></div>
+                      <span className="text-white font-bold text-sm">
+                        {index + 1}
+                      </span>
+                    </motion.div>
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-4">
-                  <h3 className="text-2xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-steel-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary/80 transition-colors duration-300">
-                    {feature.title}
-                  </h3>
+                {/* Compact Content */}
+                <div className="p-6 space-y-4 flex-grow flex flex-col">
+                  <div className="space-y-3 flex-grow">
+                    <h3 className="text-xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-steel-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary/80 transition-colors duration-300">
+                      {feature.title}
+                    </h3>
 
-                  <p className="text-base text-steel-600 dark:text-steel-300 leading-relaxed font-[family-name:var(--font-plus-jakarta-sans)] group-hover:text-steel-700 dark:group-hover:text-steel-200 transition-colors duration-300">
-                    {feature.description}
-                  </p>
+                    <p className="text-sm text-steel-600 dark:text-steel-300 leading-relaxed font-[family-name:var(--font-plus-jakarta-sans)]">
+                      {feature.description}
+                    </p>
+                  </div>
+
+                  {/* Interactive Element */}
+                  <div className="flex items-center justify-between pt-2 mt-auto">
+                    <motion.div
+                      className={`h-1 bg-gradient-to-r ${imageData.gradient} rounded-full`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: '60px' }}
+                      transition={{ duration: 0.8, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    />
+                    <motion.div
+                      className={`w-3 h-3 bg-gradient-to-r ${imageData.gradient} rounded-full`}
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 1, 0.7],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.5,
+                      }}
+                    />
+                  </div>
                 </div>
 
-                {/* Bottom indicator */}
-                <div className="pt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div
-                    className={`w-12 h-1 mx-auto bg-gradient-to-r ${featureIcons[index].gradient} rounded-full`}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                {/* Hover Effect */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${imageData.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
+                />
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
-        {/* Stats Section */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 p-12 rounded-3xl bg-gradient-to-br from-primary to-primary/80 text-white relative overflow-hidden">
-          {/* Background pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
+        {/* Compact Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-2xl bg-gradient-to-r from-primary via-blue-600 to-purple-600 text-white relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent" />
 
           {[
-            { value: '25+', label: 'Years Experience' },
-            { value: '500+', label: 'Projects Completed' },
-            { value: '99.8%', label: 'Customer Satisfaction' },
-            { value: '24/7', label: 'Support Available' },
+            { value: '36+', label: 'Years Experience' },
+            { value: '1000+', label: 'Projects' },
+            { value: '99.8%', label: 'Satisfaction' },
+            { value: '50+', label: 'Countries' },
           ].map((stat, index) => (
-            <div key={index} className="text-center relative z-10 group">
-              <div className="text-4xl sm:text-5xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+            <motion.div
+              key={index}
+              className="text-center relative z-10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-2xl sm:text-3xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold mb-1">
                 {stat.value}
               </div>
-              <div className="text-white/80 font-[family-name:var(--font-plus-jakarta-sans)] text-sm sm:text-base">
+              <div className="text-white/90 font-[family-name:var(--font-plus-jakarta-sans)] text-sm">
                 {stat.label}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

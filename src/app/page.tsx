@@ -1,10 +1,9 @@
 import {
+  About,
   Clients,
   Features,
   Hero,
   Products,
-  Services,
-  Video,
 } from '@/components/sections';
 
 export default function HomePage() {
@@ -12,11 +11,10 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <Hero />
       <Products />
-      <Video />
-      <Services />
+      <About />
+      {/* <Services /> */}
       <Features />
       <Clients />
-      {/* <CTA /> */}
     </div>
   );
 }

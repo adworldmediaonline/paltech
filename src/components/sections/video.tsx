@@ -1,227 +1,261 @@
 'use client';
 
 import { Badge } from '@/components/ui/badge';
-import homeContent from '@/data/home-content.json';
-import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-export default function Video() {
-  const [isPlaying, setIsPlaying] = useState(false);
+const features = [
+  {
+    icon: (
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    ),
+    title: 'Customer Centric Approach',
+    description:
+      'We believe in going above and beyond to ensure that your industrial cooling needs are met with precision and reliability.',
+  },
+  {
+    icon: (
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    ),
+    title: '24/7 Emergency Service',
+    description:
+      'Round-the-clock support for critical cooling systems with rapid response times to minimize downtime.',
+  },
+  {
+    icon: (
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+        />
+      </svg>
+    ),
+    title: 'Expert Technicians',
+    description:
+      'Certified engineers and technicians with decades of experience in industrial cooling system design and maintenance.',
+  },
+];
 
-  const handlePlay = () => {
-    setIsPlaying(true);
-  };
-
-  const principleIcons = [
-    'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z',
-    'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z',
-    'M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z',
-  ];
-
-  const gradients = [
-    'from-primary to-primary/80',
-    'from-primary/80 to-primary',
-    'from-primary to-primary/90',
-  ];
-
+export default function About() {
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-br from-steel-50 to-primary/10 dark:from-steel-900 dark:to-steel-800 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center space-y-6 mb-16">
-          <Badge
-            variant="secondary"
-            className="bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary border border-primary/20 dark:border-primary/30 font-[family-name:var(--font-plus-jakarta-sans)]"
+    <section className="py-12 lg:py-16 bg-white relative overflow-hidden">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left Column - Features Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-4"
           >
-            About PALTECH
-          </Badge>
-
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold">
-            <span className="bg-gradient-to-r from-steel-900 via-primary to-primary/80 dark:from-white dark:via-primary/80 dark:to-primary bg-clip-text text-transparent">
-              {homeContent.about.title}
-            </span>
-          </h2>
-
-          <p className="text-xl sm:text-2xl text-steel-600 dark:text-steel-300 max-w-4xl mx-auto leading-relaxed font-[family-name:var(--font-plus-jakarta-sans)]">
-            <span className="text-primary font-bold">PALTECH</span>{' '}
-            {homeContent.about.content.replace('PALTECH ', '')}
-          </p>
-        </div>
-
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 items-start">
-          {/* Left Principle */}
-          <div className="lg:order-1 space-y-6">
-            <div className="group bg-white/60 dark:bg-steel-900/60 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-steel-700/20 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
-              <div
-                className={`w-16 h-16 bg-gradient-to-br ${gradients[0]} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`p-4 rounded-xl border transition-all duration-300 hover:shadow-lg ${
+                  index === 0
+                    ? 'bg-primary/5 border-primary/20'
+                    : 'bg-white border-gray-200 hover:border-primary/20'
+                }`}
               >
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d={principleIcons[0]} />
-                </svg>
-              </div>
-              <h3 className="text-xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-steel-900 dark:text-white mb-3">
-                {homeContent.principles.items[0].title}
-              </h3>
-              <p className="text-steel-600 dark:text-steel-300 font-[family-name:var(--font-plus-jakarta-sans)] text-sm leading-relaxed">
-                Best quality products and genuine accessories at reasonable
-                prices.
-              </p>
-            </div>
-
-            {/* Stats Card */}
-            <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-6 text-white">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold mb-1">36+</div>
-                  <div className="text-white/80 text-xs">Years</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold mb-1">ISO</div>
-                  <div className="text-white/80 text-xs">Certified</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Center Video */}
-          <div className="lg:order-2">
-            <div className="relative aspect-video bg-steel-900 rounded-2xl overflow-hidden shadow-2xl group">
-              {!isPlaying ? (
-                <div
-                  className="relative w-full h-full cursor-pointer"
-                  onClick={handlePlay}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-steel-900/50 to-steel-900/80 flex items-center justify-center z-10">
-                    <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                      <svg
-                        className="w-8 h-8 text-white ml-1"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
+                <div className="flex items-start space-x-3">
+                  <div
+                    className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center ${
+                      index === 0
+                        ? 'bg-primary text-white'
+                        : 'bg-primary text-white'
+                    }`}
+                  >
+                    {feature.icon}
                   </div>
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-steel-900 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <svg
-                          className="w-8 h-8"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7.5v6l5.5-3-5.5-3z" />
-                        </svg>
-                      </div>
-                      <h3 className="font-[family-name:var(--font-plus-jakarta-sans)] font-semibold text-lg mb-2">
-                        {homeContent.video.title}
-                      </h3>
-                      <p className="text-sm text-white/80">Watch our story</p>
-                    </div>
+                  <div className="flex-1">
+                    <h3 className="text-base font-bold text-gray-900 mb-1">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
-              ) : (
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1"
-                  title="Paltech Company Introduction"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+              </motion.div>
+            ))}
+
+            {/* Center Image - Added to reduce empty space */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative mt-6"
+            >
+              <div className="relative h-48 rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/products/prd-2.jpg"
+                  alt="Paltech Cooling Tower Installation"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-              )}
-            </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent" />
 
-            {/* Video Description */}
-            <div className="mt-6 text-center">
-              <p className="text-steel-600 dark:text-steel-400 font-[family-name:var(--font-plus-jakarta-sans)]">
-                {homeContent.video.description}
-              </p>
-            </div>
-          </div>
+                {/* Floating Badge */}
+                <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 text-gray-900 text-xs font-medium border border-white/20 shadow-md">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-1 h-1 bg-primary rounded-full"></div>
+                    <span>Quality</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Right Principles */}
-          <div className="lg:order-3 space-y-6">
-            <div className="group bg-white/60 dark:bg-steel-900/60 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-steel-700/20 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
-              <div
-                className={`w-16 h-16 bg-gradient-to-br ${gradients[1]} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+          {/* Right Column - About Content with Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex items-center space-x-2"
+            >
+              <Badge
+                variant="secondary"
+                className="bg-primary/10 text-primary border border-primary/20 px-3 py-1 text-sm font-medium"
               >
+                ABOUT US
+              </Badge>
+              <div className="w-3 h-3 bg-primary rounded-full"></div>
+            </motion.div>
+
+            {/* Main Headline */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
+            >
+              Creating Efficient Cooling Solutions, One Industry at a Time
+            </motion.h2>
+
+            {/* Body Text */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-base text-gray-600 leading-relaxed"
+            >
+              At Paltech, we don't just provide cooling tower solutions - we
+              create industrial efficiency that lasts. With over 36 years of
+              experience, top-tier engineering expertise, and a passion for
+              excellence, we are committed to delivering high-quality cooling
+              solutions that keep your operations running smoothly.
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Button
+                size="lg"
+                className="group bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 px-6 py-3 text-base font-semibold rounded-lg"
+              >
+                Call Us: +91-7926-306-244
                 <svg
-                  className="w-8 h-8 text-white"
-                  fill="currentColor"
+                  className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path d={principleIcons[1]} />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M7 11l5-5m0 0l5 5m-5-5v12"
+                  />
                 </svg>
-              </div>
-              <h3 className="text-xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-steel-900 dark:text-white mb-3">
-                {homeContent.principles.items[1].title}
-              </h3>
-              <p className="text-steel-600 dark:text-steel-300 font-[family-name:var(--font-plus-jakarta-sans)] text-sm leading-relaxed">
-                Maintaining highest levels of precision in manufacturing
-                processes.
-              </p>
-            </div>
+              </Button>
+            </motion.div>
 
-            <div className="group bg-white/60 dark:bg-steel-900/60 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-steel-700/20 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
-              <div
-                className={`w-16 h-16 bg-gradient-to-br ${gradients[2]} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}
-              >
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d={principleIcons[2]} />
-                </svg>
-              </div>
-              <h3 className="text-xl font-[family-name:var(--font-plus-jakarta-sans)] font-bold text-steel-900 dark:text-white mb-3">
-                {homeContent.principles.items[2].title}
-              </h3>
-              <p className="text-steel-600 dark:text-steel-300 font-[family-name:var(--font-plus-jakarta-sans)] text-sm leading-relaxed">
-                Maximum energy efficiency helping reduce operational costs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-[family-name:var(--font-plus-jakarta-sans)] font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 transition-all duration-300">
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-              </svg>
-              Contact Us Today
-              <svg
-                className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+            {/* Professional Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative mt-4"
+            >
+              <div className="relative h-64 sm:h-72 rounded-xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/products/prd-1.jpg"
+                  alt="Paltech Cooling Tower Expert"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-              </svg>
-            </button>
-          </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent" />
+
+                {/* Floating Badge */}
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 text-gray-900 text-sm font-medium border border-white/20 shadow-lg">
+                  <div className="flex items-center space-x-1.5">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                    <span>Expert Team</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -top-2 -right-2 w-12 h-12 bg-primary/10 rounded-full opacity-60"></div>
+              <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-primary/20 rounded-full opacity-40"></div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

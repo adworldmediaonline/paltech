@@ -34,7 +34,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-white via-white to-primary/80 lg:to-primary/90 backdrop-blur-md relative overflow-hidden">
+    <header className="z-50 relative w-full">
       {/* Enhanced Color Flow Effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-primary/60 lg:to-primary/70"></div>
 
@@ -64,11 +64,7 @@ export default function Header() {
                   {item.hasDropdown ? (
                     <>
                       <NavigationMenuTrigger
-                        className={`text-sm font-medium transition-all duration-300 bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
-                          item.active
-                            ? 'text-primary'
-                            : 'text-steel-700 hover:text-primary'
-                        }`}
+                        className={`text-sm font-medium transition-all duration-300 bg-transparent hover:bg-primary focus:bg-primary data-[state=open]:bg-primary text-steel-900 hover:text-white focus:text-white data-[state=open]:text-white`}
                       >
                         {item.label}
                       </NavigationMenuTrigger>
@@ -81,7 +77,7 @@ export default function Header() {
                                   <NavigationMenuLink asChild>
                                     <Link
                                       href={dropdownItem.href}
-                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors text-steel-900 hover:bg-primary hover:text-white focus:bg-primary focus:text-white"
                                     >
                                       <div className="text-sm font-medium leading-none text-primary">
                                         {dropdownItem.label}
@@ -106,7 +102,7 @@ export default function Header() {
                                         >
                                           <Link
                                             href={submenuItem.href}
-                                            className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                            className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors text-steel-900 hover:bg-primary hover:text-white focus:bg-primary focus:text-white"
                                           >
                                             <div className="text-xs font-medium leading-none">
                                               {submenuItem.label}
@@ -121,11 +117,9 @@ export default function Header() {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     href={dropdownItem.href}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    className="block select-none rounded-md p-3 text-sm font-medium text-steel-900 hover:bg-primary hover:text-white focus:bg-primary focus:text-white transition-colors"
                                   >
-                                    <div className="text-sm font-medium leading-none">
-                                      {dropdownItem.label}
-                                    </div>
+                                    {dropdownItem.label}
                                     {(dropdownItem as DropdownItem)
                                       .subtitle && (
                                       <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
@@ -144,19 +138,14 @@ export default function Header() {
                       </NavigationMenuContent>
                     </>
                   ) : (
-                    <Link
-                      href={item.href}
-                      className={`relative group inline-flex h-9 w-max items-center justify-center px-3 xl:px-4 py-2 text-sm font-medium transition-colors ${
-                        item.active
-                          ? 'text-primary'
-                          : 'text-steel-700 hover:text-primary'
-                      }`}
-                    >
-                      {item.label}
-                      {item.active && (
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-primary rounded-full"></div>
-                      )}
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={item.href}
+                        className={`text-sm font-medium transition-all duration-300 bg-transparent text-steel-900 hover:bg-primary hover:text-white focus:bg-primary focus:text-white px-3 xl:px-4 py-2 rounded-lg`}
+                      >
+                        {item.label}
+                      </Link>
+                    </NavigationMenuLink>
                   )}
                 </NavigationMenuItem>
               ))}

@@ -1,9 +1,11 @@
 import {
   About,
-  Clients,
+  Expertise,
+  Faq,
   Features,
   Hero,
   Products,
+  Services,
 } from '@/components/sections';
 
 export default function HomePage() {
@@ -11,10 +13,12 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <Hero />
       <Products />
+      <Services />
       <About />
+      <Expertise />
       {/* <Services /> */}
       <Features />
-      <Clients />
+      <Faq />
     </div>
   );
 }
